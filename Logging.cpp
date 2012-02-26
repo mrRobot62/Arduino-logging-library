@@ -19,7 +19,7 @@ void Logging::Error(char* msg, ...){
     }
 }
 
-#if LOGLEVEL >= LOG_LEVEL_INFOS
+
 void Logging::Info(char* msg, ...){
     if (LOG_LEVEL_INFOS <= _level) {
         va_list args;
@@ -28,7 +28,6 @@ void Logging::Info(char* msg, ...){
     }
 }
 
-#if LOGLEVEL >= LOG_LEVEL_DEBUG
 void Logging::Debug(char* msg, ...){
     if (LOG_LEVEL_DEBUG <= _level) {
         va_list args;
@@ -37,7 +36,7 @@ void Logging::Debug(char* msg, ...){
     }
 }
 
-#if LOGLEVEL >= LOG_LEVEL_VERBOSE
+
 void Logging::Verbose(char* msg, ...){
     if (LOG_LEVEL_VERBOSE <= _level) {
         va_list args;
@@ -45,9 +44,7 @@ void Logging::Verbose(char* msg, ...){
         print(msg,args);
     }
 }
-#endif // LOG_LEVEL_VERBOSE
-#endif // LOG_LEVEL_DEBUG
-#endif // LOG_LEVEL_INFOS
+
 
 
  void Logging::print(const char *format, va_list args) {

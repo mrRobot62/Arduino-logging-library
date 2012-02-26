@@ -105,7 +105,7 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
- #if LOGLEVEL >= LOG_LEVEL_INFOS
+
    void Info(char* msg, ...);
 	
     /**
@@ -117,7 +117,7 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-#if LOGLEVEL >= LOG_LEVEL_DEBUG
+
     void Debug(char* msg, ...);
 	
     /**
@@ -129,11 +129,9 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-#if LOGLEVEL >= LOG_LEVEL_VERBOSE
+
     void Verbose(char* msg, ...);   
-#endif // LOG_LEVEL_VERBOSE
-#endif // LOG_LEVEL_DEBUG
-#endif // LOG_LEVEL_INFOS
+
     
 private:
     void print(const char *format, va_list args);
