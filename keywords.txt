@@ -1,0 +1,32 @@
+#######################################
+#	Syntax	Coloring	Map	logging	lib
+#######################################
+
+#######################################
+#	Datatypes	(KEYWORD1)
+#######################################
+
+#######################################
+#	Methods	and	Functions	(KEYWORD2)
+####################################### 
+Error	KEYWORD2	error output
+Warn	KEYWORD2	warning output
+Info	KEYWORD2	info output
+Debug	KEYWORD2	debug output
+Verbose	KEYWORD2	verbose output
+Init	KEYWORD2	initialiazing
+
+#######################################
+#	Instances	(KEYWORD2)
+#######################################
+Logging	KEYWORD2	Logging library
+
+#######################################
+#	Constants	(LITERAL1)
+#######################################
+LOG_LEVEL_NOOUTPUT	LITERAL1	Constants
+LOG_LEVEL_ERRORS	LITERAL1	Constants
+LOG_LEVEL_INFOS	LITERAL1	Constants
+LOG_LEVEL_DEBUG	LITERAL1	Constants
+LOG_LEVEL_VERBOSE	LITERAL1	Constants
+

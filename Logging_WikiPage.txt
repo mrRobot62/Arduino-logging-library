@@ -1,0 +1,41 @@
+%define=box block bgcolor=#dddddd border="2px dotted white"%
+%define=wbox block bgcolor=#eeeeee color=#000000 border="1px dotted black" padding="2px"%
+
+
+%wbox%[@Logging library for Arudino
+by LunaX - 2010/2011
+@]%%
+
+!CURRENT VERSION
+
+0.8)14-FEB-2012 beta version.
+
+!HISTORY
+
+0.8) 14-FEB-2012 Initial Release\\
+
+
+!DESCRIPTION
+Easy to use logging library, like log4j or log4net. After getting a logger object, you will have
+methods like Error, Info, Warn, Debug, Verbose to log informations over RS232.
+Depending on the current loglevel lower logleves are not printed out.
+It is possible to work with variable argument lists during output.
+
+!HOW TO IMPORT/INSTALL
+Download here: [[Attach:Enerlib.zip|Enerlib 1.0.0]]
+
+Put the Logging folder in "libraries\".
+
+In the Arduino IDE, create a new sketch (or open one) and select from the menubar "Sketch->Import Library->Logging".
+Once the library is imported, a "#include <Logging.h>" line will appear at the top of your Sketch.
+
+!Methods
+!!void Error(
+
+!Loglevels
+
+!Example
+For more examples look into sub folder examples 
+
+
+@]%%
