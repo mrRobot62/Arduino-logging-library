@@ -41,39 +41,36 @@
 <a name="l00026"></a><a class="code" href="_logging_8h.html#876ce77f3c672c7162658151e648389e">00026</a> <span class="preprocessor">#define CR "\r\n"</span>
 <a name="l00027"></a><a class="code" href="_logging_8h.html#7e6435a637199b392c536e50a8334d32">00027</a> <span class="preprocessor"></span><span class="preprocessor">#define LOGGING_VERSION 1</span>
 <a name="l00028"></a>00028 <span class="preprocessor"></span>
-<a name="l00065"></a><a class="code" href="class_logging.html">00065</a> <span class="keyword">class </span><a class="code" href="class_logging.html">Logging</a> {
-<a name="l00066"></a>00066 <span class="keyword">private</span>:
-<a name="l00067"></a>00067     <span class="keywordtype">int</span> _level;
-<a name="l00068"></a>00068     <span class="keywordtype">long</span> _baud;
-<a name="l00069"></a>00069 <span class="keyword">public</span>:
-<a name="l00078"></a>00078     <a class="code" href="class_logging.html#411afcd8ebb0a1b4eb30f3dd8f09c8b5">Logging</a>(<span class="keywordtype">int</span> level, <span class="keywordtype">long</span> baud) ;
-<a name="l00079"></a>00079         
-<a name="l00086"></a>00086         <span class="keywordtype">void</span> <a class="code" href="class_logging.html#1abc9accbd1b01422eb65126f778aa24">Init</a>();
-<a name="l00087"></a>00087         
-<a name="l00097"></a>00097     <span class="keywordtype">void</span> <a class="code" href="class_logging.html#1cf44ab531c72761fba811882336a2ad">Error</a>(<span class="keywordtype">char</span>* msg, ...);
-<a name="l00098"></a>00098         
-<a name="l00108"></a>00108 <span class="preprocessor"> #if LOGLEVEL &gt;= LOG_LEVEL_INFOS</span>
-<a name="l00109"></a>00109 <span class="preprocessor"></span>   <span class="keywordtype">void</span> <a class="code" href="class_logging.html#8a99e1a55e2b24d864d89e9aa86b2f2e">Info</a>(<span class="keywordtype">char</span>* msg, ...);
-<a name="l00110"></a>00110         
-<a name="l00120"></a>00120 <span class="preprocessor">#if LOGLEVEL &gt;= LOG_LEVEL_DEBUG</span>
-<a name="l00121"></a>00121 <span class="preprocessor"></span>    <span class="keywordtype">void</span> <a class="code" href="class_logging.html#e0fcd9e5350d7b9158c8ae9289fef193">Debug</a>(<span class="keywordtype">char</span>* msg, ...);
-<a name="l00122"></a>00122         
-<a name="l00132"></a>00132 <span class="preprocessor">#if LOGLEVEL &gt;= LOG_LEVEL_VERBOSE</span>
-<a name="l00133"></a>00133 <span class="preprocessor"></span>    <span class="keywordtype">void</span> Verbose(<span class="keywordtype">char</span>* msg, ...);   
-<a name="l00134"></a>00134 <span class="preprocessor">#endif // LOG_LEVEL_VERBOSE</span>
-<a name="l00135"></a>00135 <span class="preprocessor"></span><span class="preprocessor">#endif // LOG_LEVEL_DEBUG</span>
-<a name="l00136"></a>00136 <span class="preprocessor"></span><span class="preprocessor">#endif // LOG_LEVEL_INFOS</span>
-<a name="l00137"></a>00137 <span class="preprocessor"></span>    
-<a name="l00138"></a>00138 <span class="keyword">private</span>:
-<a name="l00139"></a>00139     <span class="keywordtype">void</span> print(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, va_list args);
-<a name="l00140"></a>00140 };
-<a name="l00141"></a>00141 <span class="preprocessor">#endif</span>
-<a name="l00142"></a>00142 <span class="preprocessor"></span>
-<a name="l00143"></a>00143 
+<a name="l00071"></a><a class="code" href="class_logging.html">00071</a> <span class="keyword">class </span><a class="code" href="class_logging.html">Logging</a> {
+<a name="l00072"></a>00072 <span class="keyword">private</span>:
+<a name="l00073"></a><a class="code" href="class_logging.html#117105f639285ba5922836121294c04a">00073</a>     <span class="keywordtype">int</span> <a class="code" href="class_logging.html#117105f639285ba5922836121294c04a">_level</a>;
+<a name="l00074"></a><a class="code" href="class_logging.html#8a2fe833b6e957b763146c32d6be5f2d">00074</a>     <span class="keywordtype">long</span> <a class="code" href="class_logging.html#8a2fe833b6e957b763146c32d6be5f2d">_baud</a>;
+<a name="l00075"></a>00075 <span class="keyword">public</span>:
+<a name="l00079"></a><a class="code" href="class_logging.html#cc3d848a3d05076fd185cd95e9c648d5">00079</a>     <a class="code" href="class_logging.html#cc3d848a3d05076fd185cd95e9c648d5">Logging</a>(){} ;
+<a name="l00080"></a>00080         
+<a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_logging.html#f6a890a6feac5bf93b04cb22db7bd530">Init</a>(<span class="keywordtype">int</span> level, <span class="keywordtype">long</span> baud);
+<a name="l00088"></a>00088         
+<a name="l00098"></a>00098     <span class="keywordtype">void</span> <a class="code" href="class_logging.html#1cf44ab531c72761fba811882336a2ad">Error</a>(<span class="keywordtype">char</span>* msg, ...);
+<a name="l00099"></a>00099         
+<a name="l00110"></a>00110    <span class="keywordtype">void</span> <a class="code" href="class_logging.html#8a99e1a55e2b24d864d89e9aa86b2f2e">Info</a>(<span class="keywordtype">char</span>* msg, ...);
+<a name="l00111"></a>00111         
+<a name="l00122"></a>00122     <span class="keywordtype">void</span> <a class="code" href="class_logging.html#e0fcd9e5350d7b9158c8ae9289fef193">Debug</a>(<span class="keywordtype">char</span>* msg, ...);
+<a name="l00123"></a>00123         
+<a name="l00134"></a>00134     <span class="keywordtype">void</span> <a class="code" href="class_logging.html#2ae6a981ea685c851b87cf4c1ec2fb8f">Verbose</a>(<span class="keywordtype">char</span>* msg, ...);   
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136     
+<a name="l00137"></a>00137 <span class="keyword">private</span>:
+<a name="l00138"></a>00138     <span class="keywordtype">void</span> <a class="code" href="class_logging.html#714840794950ab31df5da5b95322e391">print</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, va_list args);
+<a name="l00139"></a>00139 };
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 <span class="keyword">extern</span> <a class="code" href="class_logging.html">Logging</a> <a class="code" href="_logging_8cpp.html#f8164407f3289dde66d36070af4244c1">Log</a>;
+<a name="l00142"></a>00142 <span class="preprocessor">#endif</span>
+<a name="l00143"></a>00143 <span class="preprocessor"></span>
 <a name="l00144"></a>00144 
 <a name="l00145"></a>00145 
+<a name="l00146"></a>00146 
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun Feb 26 09:58:13 2012 for Logging by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Mar 6 20:17:24 2012 for Logging by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -61,6 +61,12 @@ extern "C" {
 * <tr><td>3</td><td>LOG_LEVEL_DEBUG</td><td>errors, info and debug </td></tr>
 * <tr><td>4</td><td>LOG_LEVEL_VERBOSE</td><td>all </td></tr>
 * </table>
+* <br>
+* <h1>History</h1><br>
+* <table border="0">
+* <tr><td>01 FEB 2012</td><td>initial release</td></tr>
+* <tr><td>06 MAR 2012</td><td>implement a preinstanciate object (like in Wire, ...)</td></tr>
+* <tr><td></td><td>methode init get now loglevel and baud parameter</td></tr>
 */
 class Logging {
 private:
@@ -68,14 +74,9 @@ private:
     long _baud;
 public:
     /*! 
-	 * Constructor
-	 * initialize loglevel and set baud rate
-	 * \param level	possible loglevel between 0 - 4
-	 * \param baud baudrate for RS232
-	 * \return 
-	 *
+	 * default Constructor
 	 */
-    Logging(int level, long baud) ;
+    Logging(){} ;
 	
     /** 
 	* Initializing, must be called as first.
@@ -83,7 +84,7 @@ public:
 	* \return void
 	*
 	*/
-	void Init();
+	void Init(int level, long baud);
 	
     /**
 	* Output an error message. Output message contains
@@ -136,6 +137,8 @@ public:
 private:
     void print(const char *format, va_list args);
 };
+
+extern Logging Log;
 #endif
 
 

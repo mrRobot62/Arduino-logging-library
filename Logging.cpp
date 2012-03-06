@@ -1,12 +1,8 @@
 #include "Logging.h"
 
-Logging::Logging(int level, long baud) {
+void Logging::Init(int level, long baud){
     _level = constrain(level,LOG_LEVEL_NOOUTPUT,LOG_LEVEL_VERBOSE);
     _baud = baud;
-} 
-
-
-void Logging::Init(){
     Serial.begin(_baud);
 }
 
@@ -118,6 +114,7 @@ void Logging::Verbose(char* msg, ...){
     }
  }
  
+ Logging Log = Logging();
 
  
  

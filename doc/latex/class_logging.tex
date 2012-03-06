@@ -7,15 +7,29 @@
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_logging_411afcd8ebb0a1b4eb30f3dd8f09c8b5}{Logging} (int level, long baud)
+\hyperlink{class_logging_cc3d848a3d05076fd185cd95e9c648d5}{Logging} ()
 \item 
-void \hyperlink{class_logging_1abc9accbd1b01422eb65126f778aa24}{Init} ()
+void \hyperlink{class_logging_f6a890a6feac5bf93b04cb22db7bd530}{Init} (int level, long baud)
 \item 
 void \hyperlink{class_logging_1cf44ab531c72761fba811882336a2ad}{Error} (char $\ast$msg,...)
 \item 
 void \hyperlink{class_logging_8a99e1a55e2b24d864d89e9aa86b2f2e}{Info} (char $\ast$msg,...)
 \item 
 void \hyperlink{class_logging_e0fcd9e5350d7b9158c8ae9289fef193}{Debug} (char $\ast$msg,...)
+\item 
+void \hyperlink{class_logging_2ae6a981ea685c851b87cf4c1ec2fb8f}{Verbose} (char $\ast$msg,...)
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{class_logging_714840794950ab31df5da5b95322e391}{print} (const char $\ast$format, va\_\-list args)
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{class_logging_117105f639285ba5922836121294c04a}{\_\-level}
+\item 
+long \hyperlink{class_logging_8a2fe833b6e957b763146c32d6be5f2d}{\_\-baud}
 \end{CompactItemize}
 
 
@@ -40,37 +54,38 @@ void \hyperlink{class_logging_e0fcd9e5350d7b9158c8ae9289fef193}{Debug} (char $\a
 3&LOG\_\-LEVEL\_\-DEBUG&errors, info and debug  \\\hline
 4&LOG\_\-LEVEL\_\-VERBOSE&all  \\\hline
 \end{TabularC}
+\par
+ \subsection*{History}
+
+\par
+ \begin{TabularC}{2}
+\hline
+01 FEB 2012&initial release \\\hline
+06 MAR 2012&implement a preinstanciate object (like in Wire, ...) \\\hline
+&methode init get now loglevel and baud parameter \\\hline
+\end{TabularC}
 
 
-Definition at line 65 of file Logging.h.
+Definition at line 71 of file Logging.h.
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_logging_411afcd8ebb0a1b4eb30f3dd8f09c8b5}{
+\hypertarget{class_logging_cc3d848a3d05076fd185cd95e9c648d5}{
 \index{Logging@{Logging}!Logging@{Logging}}
 \index{Logging@{Logging}!Logging@{Logging}}
-\subsubsection[Logging]{\setlength{\rightskip}{0pt plus 5cm}Logging::Logging (int {\em level}, \/  long {\em baud})}}
-\label{class_logging_411afcd8ebb0a1b4eb30f3dd8f09c8b5}
+\subsubsection[Logging]{\setlength{\rightskip}{0pt plus 5cm}Logging::Logging ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_logging_cc3d848a3d05076fd185cd95e9c648d5}
 
 
-Constructor initialize loglevel and set baud rate \begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em level}]possible loglevel between 0 - 4 \item[{\em baud}]baudrate for RS232 \end{description}
-\end{Desc}
-\begin{Desc}
-\item[Returns:]\end{Desc}
+default Constructor 
 
-
-Definition at line 3 of file Logging.cpp.
-
-References LOG\_\-LEVEL\_\-NOOUTPUT, and LOG\_\-LEVEL\_\-VERBOSE.
+Definition at line 79 of file Logging.h.
 
 \subsection{Member Function Documentation}
-\hypertarget{class_logging_1abc9accbd1b01422eb65126f778aa24}{
+\hypertarget{class_logging_f6a890a6feac5bf93b04cb22db7bd530}{
 \index{Logging@{Logging}!Init@{Init}}
 \index{Init@{Init}!Logging@{Logging}}
-\subsubsection[Init]{\setlength{\rightskip}{0pt plus 5cm}void Logging::Init ()}}
-\label{class_logging_1abc9accbd1b01422eb65126f778aa24}
+\subsubsection[Init]{\setlength{\rightskip}{0pt plus 5cm}void Logging::Init (int {\em level}, \/  long {\em baud})}}
+\label{class_logging_f6a890a6feac5bf93b04cb22db7bd530}
 
 
 Initializing, must be called as first. \begin{Desc}
@@ -82,7 +97,9 @@ Initializing, must be called as first. \begin{Desc}
 \item[Returns:]void \end{Desc}
 
 
-Definition at line 9 of file Logging.cpp.\hypertarget{class_logging_1cf44ab531c72761fba811882336a2ad}{
+Definition at line 3 of file Logging.cpp.
+
+References \_\-baud, \_\-level, LOG\_\-LEVEL\_\-NOOUTPUT, and LOG\_\-LEVEL\_\-VERBOSE.\hypertarget{class_logging_1cf44ab531c72761fba811882336a2ad}{
 \index{Logging@{Logging}!Error@{Error}}
 \index{Error@{Error}!Logging@{Logging}}
 \subsubsection[Error]{\setlength{\rightskip}{0pt plus 5cm}void Logging::Error (char $\ast$ {\em msg}, \/   {\em ...})}}
@@ -98,9 +115,18 @@ Output an error message. Output message contains ERROR: followed by original msg
 \item[Returns:]void \end{Desc}
 
 
-Definition at line 13 of file Logging.cpp.
+Definition at line 9 of file Logging.cpp.
 
-References LOG\_\-LEVEL\_\-ERRORS.\hypertarget{class_logging_8a99e1a55e2b24d864d89e9aa86b2f2e}{
+References \_\-level, LOG\_\-LEVEL\_\-ERRORS, and print().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=117pt]{class_logging_1cf44ab531c72761fba811882336a2ad_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_logging_8a99e1a55e2b24d864d89e9aa86b2f2e}{
 \index{Logging@{Logging}!Info@{Info}}
 \index{Info@{Info}!Logging@{Logging}}
 \subsubsection[Info]{\setlength{\rightskip}{0pt plus 5cm}void Logging::Info (char $\ast$ {\em msg}, \/   {\em ...})}}
@@ -118,9 +144,18 @@ Output an info message. Output message contains Info messages are printed out at
 \item[Returns:]void \end{Desc}
 
 
-Definition at line 23 of file Logging.cpp.
+Definition at line 19 of file Logging.cpp.
 
-References LOG\_\-LEVEL\_\-INFOS.\hypertarget{class_logging_e0fcd9e5350d7b9158c8ae9289fef193}{
+References \_\-level, LOG\_\-LEVEL\_\-INFOS, and print().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=114pt]{class_logging_8a99e1a55e2b24d864d89e9aa86b2f2e_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_logging_e0fcd9e5350d7b9158c8ae9289fef193}{
 \index{Logging@{Logging}!Debug@{Debug}}
 \index{Debug@{Debug}!Logging@{Logging}}
 \subsubsection[Debug]{\setlength{\rightskip}{0pt plus 5cm}void Logging::Debug (char $\ast$ {\em msg}, \/   {\em ...})}}
@@ -138,9 +173,83 @@ Output an debug message. Output message contains Debug messages are printed out 
 \item[Returns:]void \end{Desc}
 
 
-Definition at line 32 of file Logging.cpp.
+Definition at line 27 of file Logging.cpp.
 
-References LOG\_\-LEVEL\_\-DEBUG.
+References \_\-level, LOG\_\-LEVEL\_\-DEBUG, and print().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=120pt]{class_logging_e0fcd9e5350d7b9158c8ae9289fef193_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_logging_2ae6a981ea685c851b87cf4c1ec2fb8f}{
+\index{Logging@{Logging}!Verbose@{Verbose}}
+\index{Verbose@{Verbose}!Logging@{Logging}}
+\subsubsection[Verbose]{\setlength{\rightskip}{0pt plus 5cm}void Logging::Verbose (char $\ast$ {\em msg}, \/   {\em ...})}}
+\label{class_logging_2ae6a981ea685c851b87cf4c1ec2fb8f}
+
+
+Output an verbose message. Output message contains Debug messages are printed out at l loglevels $>$= LOG\_\-LEVEL\_\-VERBOSE
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em msg}]format string to output \item[{\em ...}]any number of variables \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]void \end{Desc}
+
+
+Definition at line 36 of file Logging.cpp.
+
+References \_\-level, LOG\_\-LEVEL\_\-VERBOSE, and print().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=124pt]{class_logging_2ae6a981ea685c851b87cf4c1ec2fb8f_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_logging_714840794950ab31df5da5b95322e391}{
+\index{Logging@{Logging}!print@{print}}
+\index{print@{print}!Logging@{Logging}}
+\subsubsection[print]{\setlength{\rightskip}{0pt plus 5cm}void Logging::print (const char $\ast$ {\em format}, \/  va\_\-list {\em args})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_logging_714840794950ab31df5da5b95322e391}
+
+
+
+
+Definition at line 46 of file Logging.cpp.
+
+Referenced by Debug(), Error(), Info(), and Verbose().
+
+\subsection{Member Data Documentation}
+\hypertarget{class_logging_117105f639285ba5922836121294c04a}{
+\index{Logging@{Logging}!\_\-level@{\_\-level}}
+\index{\_\-level@{\_\-level}!Logging@{Logging}}
+\subsubsection[\_\-level]{\setlength{\rightskip}{0pt plus 5cm}int {\bf Logging::\_\-level}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_logging_117105f639285ba5922836121294c04a}
+
+
+
+
+Definition at line 73 of file Logging.h.
+
+Referenced by Debug(), Error(), Info(), Init(), and Verbose().\hypertarget{class_logging_8a2fe833b6e957b763146c32d6be5f2d}{
+\index{Logging@{Logging}!\_\-baud@{\_\-baud}}
+\index{\_\-baud@{\_\-baud}!Logging@{Logging}}
+\subsubsection[\_\-baud]{\setlength{\rightskip}{0pt plus 5cm}long {\bf Logging::\_\-baud}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_logging_8a2fe833b6e957b763146c32d6be5f2d}
+
+
+
+
+Definition at line 74 of file Logging.h.
+
+Referenced by Init().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
