@@ -23,7 +23,7 @@ extern "C" {
 #define LOGLEVEL LOG_LEVEL_DEBUG 
 
 
-#define CR "\r\n"
+#define CR "\n"
 #define LOGGING_VERSION 1
 
 /*!
@@ -72,20 +72,36 @@ class Logging {
 private:
     int _level;
     long _baud;
+    Print* _printer;
 public:
     /*! 
 	 * default Constructor
 	 */
-    Logging(){} ;
+    Logging()
+      : _level(LOG_LEVEL_NOOUTPUT),
+        _baud(0),
+        _printer(NULL) {}
 	
     /** 
 	* Initializing, must be called as first.
-	* \param void
+	* \param level - logging levels <= this will be logged.
+	* \param baud - baud rate to initialize the serial port to.
 	* \return void
 	*
 	*/
 	void Init(int level, long baud);
 	
+    /**
+    * Initializing, must be called as first. Note that if you use
+    * this variant of Init, you need to initialize the baud rate
+    * yourself, if printer happens to be a serial port.
+    * \param level - logging levels <= this will be logged.
+    * \param printer - place that logging output will be sent to.
+    * \return void
+    *
+    */
+    void Init(int level, Print *printer);
+
     /**
 	* Output an error message. Output message contains
 	* ERROR: followed by original msg
@@ -95,7 +111,7 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-    void Error(char* msg, ...);
+    void Error(const char* msg, ...);
 	
     /**
 	* Output an info message. Output message contains
@@ -107,7 +123,7 @@ public:
 	* \return void
 	*/
 
-   void Info(char* msg, ...);
+   void Info(const char* msg, ...);
 	
     /**
 	* Output an debug message. Output message contains
@@ -119,7 +135,7 @@ public:
 	* \return void
 	*/
 
-    void Debug(char* msg, ...);
+    void Debug(const char* msg, ...);
 	
     /**
 	* Output an verbose message. Output message contains
@@ -131,7 +147,7 @@ public:
 	* \return void
 	*/
 
-    void Verbose(char* msg, ...);   
+    void Verbose(const char* msg, ...);
 
     
 private:
