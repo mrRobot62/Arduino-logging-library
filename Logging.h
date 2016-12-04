@@ -81,6 +81,7 @@ public:
 	*
 	*/
 	void init(int level, long baud);
+	void init(int level, long baud, Stream* additionalLogger);
 	
     /**
 	* Output an error message. Output message contains
@@ -91,7 +92,7 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-    void error(char* msg, ...);
+    void error(const char* msg, ...);
 	
     /**
 	* Output an info message. Output message contains
@@ -103,7 +104,7 @@ public:
 	* \return void
 	*/
 
-   void info(char* msg, ...);
+   void info(const char* msg, ...);
 	
     /**
 	* Output an debug message. Output message contains
@@ -115,7 +116,7 @@ public:
 	* \return void
 	*/
 
-    void debug(char* msg, ...);
+    void debug(const char* msg, ...);
 	
     /**
 	* Output an verbose message. Output message contains
@@ -127,10 +128,15 @@ public:
 	* \return void
 	*/
 
-    void verbose(char* msg, ...);   
+    void verbose(const char* msg, ...);   
     
 private:
-    void print(const char *format, va_list args);
+    void print(const char *msg);
+    void printFormat(const char *format, va_list args);
+    void printFormat(Stream *stream, const char *format, va_list args);
+	
+	Stream* _stream;
+	Stream* _additionalLogger;
 };
 
 extern Logging Log;
