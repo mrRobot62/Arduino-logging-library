@@ -87,7 +87,7 @@ void Logging::Verbose(char* msg, ...){
 			}
 
             if( *format == 'c' ) {
-				Serial.print(va_arg( args, int ));
+				Serial.print((char)va_arg( args, int ));
 				continue;
 			}
             if( *format == 't' ) {
