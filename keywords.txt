@@ -1,7 +1,12 @@
 #######################################
-#	Syntax	Coloring	Map	logging	lib
+# Syntax Coloring Map ArduinoLog library
 #######################################
 
+#######################################
+#	Instances	(KEYWORD1)
+#######################################
+Logging	KEYWORD1	Logging library
+Log	    KEYWORD1	Logging library
 #######################################
 #	Datatypes	(KEYWORD1)
 #######################################
@@ -9,12 +14,12 @@
 #######################################
 #	Methods	and	Functions	(KEYWORD2)
 ####################################### 
-Error	KEYWORD2	error output
-Warn	KEYWORD2	warning output
-Info	KEYWORD2	info output
-Debug	KEYWORD2	debug output
-Verbose	KEYWORD2	verbose output
-Init	KEYWORD2	initialiazing
+fatal	KEYWORD2	fatal error output
+error	KEYWORD2	error output
+warning	KEYWORD2	warning output
+notice	KEYWORD2	info output
+verbose	KEYWORD2	verbose output
+begin	KEYWORD2	initialize library
 
 #######################################
 #	Instances	(KEYWORD2)

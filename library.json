@@ -1,0 +1,26 @@
+{
+  "name": "ArduinoLog",
+  "version": "1.0.0",
+  "description": "Simple application log library. Simple application log library. Main features: multiple log levels, custom output stream, custom formatting, flash memory support.",
+  "keywords": "logging, debug, log, log levels",
+  "authors":
+  {
+    "name":  "Thijs Elenbaas",
+    "url":   "https://github.com/thijse",
+    "maintainer": true
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/thijse/Arduino-Log/"
+  },
+  "homepage": "https://github.com/thijse/Arduino-Log/",
+  "export": {
+    "exclude": [
+      "extras",
+    ]
+  },
+  "frameworks": [ "arduino",  ],
+  "platforms": "*",
+  "examples": "examples/*/*.ino"
+}
