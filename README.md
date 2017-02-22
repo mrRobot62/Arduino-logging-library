@@ -131,5 +131,5 @@ Bugfixes & features by
 
 ## Copyright
 
-CmdMessenger is provided Copyright © 2017 under MIT License.
+ArduinoLog is provided Copyright © 2017 under MIT License.
 
