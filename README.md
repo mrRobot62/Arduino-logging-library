@@ -1,8 +1,6 @@
 ArduinoLog - C++ Log library for Arduino devices
 ====================
 
-[![Build status](https://ci.appveyor.com/api/projects/status/m7s53wav1l0abssg/branch/master?svg=true)](https://ci.appveyor.com/project/bblanchon/arduinojson/branch/master) [![Build Status](https://travis-ci.org/bblanchon/ArduinoJson.svg?branch=master)](https://travis-ci.org/bblanchon/ArduinoJson) [![Coverage Status](https://img.shields.io/coveralls/bblanchon/ArduinoJson.svg)](https://coveralls.io/r/bblanchon/ArduinoJson?branch=master) [![Star this project](http://githubbadges.com/star.svg?user=bblanchon&repo=ArduinoJson&style=flat&color=fff&background=007ec6)](https://github.com/bblanchon/ArduinoJson)
-
 *An small Logging library for embedded systems.*
 
 It's designed to expose the main features of extensive logging libraries such as log4j, log4net & CocoaLumberjack, with a small footprint.
@@ -20,7 +18,6 @@ It's designed to expose the main features of extensive logging libraries such as
 
 * All Arduino boards (Uno, Due, Mini, Micro, Yun...)
 * ESP8266
-## Downloading
 
 ## Downloading
 
@@ -63,11 +60,12 @@ begin(int level, Print* logOutput)
 The loglevels available are
 
 ```
-* 0 - LOG_LEVEL_NONE     no output 
-* 1 - LOG_LEVEL_ERROR    errors 
-* 2 - LOG_LEVEL_INFO     errors and info 
-* 3 - LOG_LEVEL_DEBUG    errors, info and debug 
-* 4 - LOG_LEVEL_VERBOSE  all 
+* 0 - LOG_LEVEL_SILENT     no output 
+* 1 - LOG_LEVEL_FATAL      fatal errors 
+* 2 - LOG_LEVEL_ERROR      all errors  
+* 3 - LOG_LEVEL_WARNING    errors, and warnings 
+* 4 - LOG_LEVEL_NOTICE     errors, warnings and notices 
+* 5 - LOG_LEVEL_VERBOSE    all 
 ```
 
 example
@@ -119,10 +117,12 @@ examples
 
 Based on library by 
 * https://github.com/mrRobot62  
+
 Bugfixes & features by
 * https://github.com/rahuldeo2047
 * https://github.com/NOX73
 * https://github.com/dhylands
+
 
 ## On using and modifying libraries
 
