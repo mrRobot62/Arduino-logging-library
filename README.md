@@ -39,7 +39,7 @@ This package has not yet been published to the Arduino & PlatformIO package mana
     Serial.begin(9600);
     
     // Initialize with log level and log output. 
-    Log.begin(LOG_LEVEL_VERBOSE, &Serial);
+    Log.begin   (LOG_LEVEL_VERBOSE, &Serial);
     Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
     Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
 ```
