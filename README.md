@@ -85,7 +85,7 @@ void error  (const char *format, va_list logVariables);
 void debug  (const char *format, va_list logVariables);
 void error  (const char *format, va_list logVariables);
 void verbose(const char *format, va_list logVariables);
-
+void verbose(const char *format, va_list logVariables);
 ```
 
 where the format string can be used to format the log variables
@@ -108,10 +108,11 @@ The format string may come from flash memory.
 examples
 
 ```
-    Log.info    (  "Log as Info with integer values            : %d, %d"CR                  , 34,  799870);
-    Log.debug   (F("Log as Debug with hex values from Flash    : %x, %X"CR                 ), 24342,  25546);
-    Log.error   (F("Log as Error with string value from Flash  : %s"CR                     ), "value");
-    Log.verbose (  "Log as Verbose with long value             : %l"CR                      , 7979);
+    Log.fatal   (F("Log as Fatal   with string value from Flash   : %s"CR    ) , "value"     );
+    Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
+    Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
+    Log.notice  (  "Log as Notice  with hexadecimal values        : %x, %X"CR  , 21  , 348972);
+    Log.verbose (F("Log as Verbose with bool value from Flash     : %t, %T"CR) , true, false );
 ```
 
 
