@@ -53,7 +53,8 @@ void loop() {
     Log.notice   (  "Log as Info with string value   : %s"CR                      , stringValue1.c_str());
     Log.notice   (F("Log as Debug with mixed values  : %d, %d, %l, %l, %t, %T"CR ), intValue1 , intValue2,
                 longValue1, longValue2, boolValue1, boolValue2);
-    Log.warning  (  "Log as Waring with bool value   : %T"CR                      , boolValue1);
+    Log.trace    (  "Log as Trace with bool value    : %T"CR                      , boolValue1);
+    Log.warning  (  "Log as Warning with bool value  : %T"CR                      , boolValue1);
     Log.error    (  "Log as Error with bool value    : %T"CR                      , boolValue1);
     Log.fatal    (  "Log as Fatal with bool value    : %T"CR                      , boolValue1);
     Log.verbose  (F("Log as Vebose with bool value   : %T"CR CR CR               ), boolValue2);
