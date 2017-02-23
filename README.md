@@ -40,10 +40,11 @@ This package has not yet been published to the Arduino & PlatformIO package mana
     
     // Initialize with log level and log output. 
     Log.begin(LOG_LEVEL_VERBOSE, &Serial);
-    Log.info    (  "Log as Info with integer values : %d, %d"CR                  , 34,  799870);   
+    Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
+    Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
 ```
 
-[See JsonParserExample.ino](examples/Log/Log.ino)
+[See examples/ArduinoLog/Log.ino](examples/ArduinoLog/Log.ino)
 
 ## Usage
 
