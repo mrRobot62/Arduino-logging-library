@@ -1,7 +1,7 @@
 ArduinoLog - C++ Log library for Arduino devices
 ====================
 
-*An small Logging library for embedded systems.*
+*An minimalistic Logging framework  for Arduino-compatible embedded systems.*
 
 ArduinoLog is a minimalistic framework to help the programmer output log statements to a variety of output targets, fashioned after xtensive logging libraries such as log4cpp ,log4j and log4net. In case of problems with an application, it is helpful to enable logging so that the problem can be located. ArduinoLog is designed so that log statements can remain in the code with minimal performance cost. In order to facilitate this the loglevel can be adjusted, and if the code is completely tested all logging code can be compiled out. 
 
