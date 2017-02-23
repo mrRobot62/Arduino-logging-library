@@ -35,7 +35,8 @@ Licensed under the MIT License <http://opensource.org/licenses/MIT>.
 #define LOG_LEVEL_ERROR   2
 #define LOG_LEVEL_WARNING 3
 #define LOG_LEVEL_NOTICE  4
-#define LOG_LEVEL_VERBOSE 5
+#define LOG_LEVEL_TRACE   5
+#define LOG_LEVEL_VERBOSE 6
 
 #define CR "\n"
 #define LOGGING_VERSION 1_0_0
@@ -72,7 +73,8 @@ Licensed under the MIT License <http://opensource.org/licenses/MIT>.
 * 2 - LOG_LEVEL_ERROR      all errors  
 * 3 - LOG_LEVEL_WARNING    errors, and warnings 
 * 4 - LOG_LEVEL_NOTICE     errors, warnings and notices 
-* 5 - LOG_LEVEL_VERBOSE    all 
+* 5 - LOG_LEVEL_TRACE      errors, warnings, notices, traces
+* 6 - LOG_LEVEL_VERBOSE    all 
 */
 
 class Logging {
@@ -180,6 +182,26 @@ public:
     }
 #endif		
   }
+    /**
+	* Output a trace message. Output message contains
+	* Debug messages are printed out at l
+	* loglevels >= LOG_LEVEL_VERBOSE
+	*
+	* \param msg format string to output
+	* \param ... any number of variables
+	* \return void
+	*/
+  template <class T> void trace(T msg, ...){
+#ifndef DISABLE_LOGGING	  
+    if (LOG_LEVEL_TRACE <= _level) {
+	  if (_showLevel) _logOutput->print("T: ");
+      va_list args;
+      va_start(args, msg);
+      print(msg,args);
+    }
+#endif		
+  }	
+	
     /**
 	* Output an verbose message. Output message contains
 	* Debug messages are printed out at l
