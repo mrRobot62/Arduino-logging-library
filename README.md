@@ -68,7 +68,8 @@ The loglevels available are
 * 2 - LOG_LEVEL_ERROR      all errors  
 * 3 - LOG_LEVEL_WARNING    errors, and warnings 
 * 4 - LOG_LEVEL_NOTICE     errors, warnings and notices 
-* 5 - LOG_LEVEL_VERBOSE    all 
+* 5 - LOG_LEVEL_TRACE      errors, warnings, notices & traces 
+* 6 - LOG_LEVEL_VERBOSE    all 
 ```
 
 example
@@ -84,11 +85,12 @@ if you want to fully remove all logging code, uncomment `#define DISABLE_LOGGING
 The library allows you to log on different levels by the following functions
 
 ```c++
-void error  (const char *format, va_list logVariables); 
-void debug  (const char *format, va_list logVariables);
-void error  (const char *format, va_list logVariables);
-void verbose(const char *format, va_list logVariables);
-void verbose(const char *format, va_list logVariables);
+void fatal   (const char *format, va_list logVariables); 
+void error   (const char *format, va_list logVariables);
+void warning (const char *format, va_list logVariables);
+void notice  (const char *format, va_list logVariables);
+void trace   (const char *format, va_list logVariables);
+void verbose (const char *format, va_list logVariables);
 ```
 
 where the format string can be used to format the log variables
