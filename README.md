@@ -1,5 +1,6 @@
 ArduinoLog - C++ Log library for Arduino devices
 ====================
+[![Build Status](https://travis-ci.org/thijse/Arduino-Log.svg?branch=master)](https://travis-ci.org/thijse/Arduino-Log)
 
 *An minimalistic Logging framework  for Arduino-compatible embedded systems.*
 
