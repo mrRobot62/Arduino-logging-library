@@ -10,7 +10,7 @@ ArduinoLog is a minimalistic framework to help the programmer output log stateme
 * Different log levels (Error, Info, Warn, Debug, Verbose )
 * Supports multiple variables
 * Supports formatted strings 
-* Supports formatted strings from flash memeory
+* Supports formatted strings from flash memory
 * Fixed memory allocation (zero malloc)
 * MIT License
 
