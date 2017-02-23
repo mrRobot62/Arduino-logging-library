@@ -3,7 +3,7 @@ ArduinoLog - C++ Log library for Arduino devices
 
 *An small Logging library for embedded systems.*
 
-It's designed to expose the main features of extensive logging libraries such as log4j, log4net & CocoaLumberjack, with a small footprint.
+ArduinoLog is a minimalistic framework to help the programmer output log statements to a variety of output targets, fashioned after xtensive logging libraries such as log4cpp ,log4j and log4net. In case of problems with an application, it is helpful to enable logging so that the problem can be located. ArduinoLog is designed so that log statements can remain in the code with minimal performance cost. In order to facilitate this the loglevel can be adjusted, and if the code is completely tested all logging code can be compiled out. 
 
 ## Features
 
@@ -90,6 +90,7 @@ void verbose(const char *format, va_list logVariables);
 
 where the format string can be used to format the log variables
 
+```
 * %s	display as string (char*)
 * %c	display as single character
 * %d	display as integer value
@@ -100,6 +101,7 @@ where the format string can be used to format the log variables
 * %B	display as  binary number, prefixed by `0b'
 * %t	display as boolean value "t" or "f"
 * %T	display as boolean value "true" or "false"
+```
 
 The format string may come from flash memory.
 
@@ -116,12 +118,12 @@ examples
 ## Credit
 
 Based on library by 
-* https://github.com/mrRobot62  
+* [/mrRobot62](https://github.com/mrRobot62)  
 
 Bugfixes & features by
-* https://github.com/rahuldeo2047
-* https://github.com/NOX73
-* https://github.com/dhylands
+* [rahuldeo2047](https://github.com/rahuldeo2047)
+* [NOX73](https://github.com/NOX73)
+* [dhylands](https://github.com/dhylands)
 
 
 ## On using and modifying libraries
