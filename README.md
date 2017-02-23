@@ -3,7 +3,7 @@ ArduinoLog - C++ Log library for Arduino devices
 
 *An minimalistic Logging framework  for Arduino-compatible embedded systems.*
 
-ArduinoLog is a minimalistic framework to help the programmer output log statements to a variety of output targets, fashioned after xtensive logging libraries such as log4cpp ,log4j and log4net. In case of problems with an application, it is helpful to enable logging so that the problem can be located. ArduinoLog is designed so that log statements can remain in the code with minimal performance cost. In order to facilitate this the loglevel can be adjusted, and if the code is completely tested all logging code can be compiled out. 
+ArduinoLog is a minimalistic framework to help the programmer output log statements to an output of choice, fashioned after extensive logging libraries such as log4cpp ,log4j and log4net. In case of problems with an application, it is helpful to enable logging so that the problem can be located. ArduinoLog is designed so that log statements can remain in the code with minimal performance cost. In order to facilitate this the loglevel can be adjusted, and (if your code is completely tested) all logging code can be compiled out. 
 
 ## Features
 
@@ -118,6 +118,13 @@ examples
     Log.verbose (F("Log as Verbose with bool value from Flash     : %t, %T"CR) , true, false );
 ```
 
+### Disable library
+
+(if your code is completely tested) all logging code can be compiled out. Do this by uncommenting  
+```c++
+#define DISABLE_LOGGING 
+```
+in `Logging.h`. This may significantly reduce your project size.
 
 ## Credit
 
