@@ -81,7 +81,7 @@ if you want to fully remove all logging code, uncomment `#define DISABLE_LOGGING
 
 The library allows you to log on different levels by the following functions
 
-```
+```c++
 void error  (const char *format, va_list logVariables); 
 void debug  (const char *format, va_list logVariables);
 void error  (const char *format, va_list logVariables);
@@ -108,7 +108,7 @@ The format string may come from flash memory.
 
 examples
 
-```
+```c++
     Log.fatal   (F("Log as Fatal   with string value from Flash   : %s"CR    ) , "value"     );
     Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
     Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
