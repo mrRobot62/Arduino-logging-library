@@ -6,11 +6,11 @@
 */
 
 
-int intValue1  , intValue2;
-long longValue1, longValue2;
-bool boolValue1, boolValue2;
-char* charArray    = "this is a string";
-String stringValue1 = "this is a string";
+int          intValue1  , intValue2;
+long         longValue1, longValue2;
+bool         boolValue1, boolValue2;
+const char * charArray    = "this is a string";
+String       stringValue1 = "this is a string";
 
 void setup() {
     // Set up serial port and wait until connected
@@ -27,9 +27,9 @@ void setup() {
     
     //Start logging
 
-    Log.notice(F(CR"******************************************"CR));                      // Info string with Newline
-    Log.notice(  "***          Logging example                "CR);                       // Info string in flash memory
-    Log.notice(F("******************* ")); Log.notice("*********************** "CR);        // two info strings without newline
+    Log.notice(F(CR "******************************************" CR));                     // Info string with Newline
+    Log.notice(  "***          Logging example                " CR);                       // Info string in flash memory
+    Log.notice(F("******************* ")); Log.notice("*********************** " CR);      // two info strings without newline
 }
 
 void loop() {
@@ -42,21 +42,21 @@ void loop() {
     boolValue1 = random(2)==0;
     boolValue2 = random(2)==1;
     
-    Log.notice   (  "Log as Info with integer values : %d, %d"CR                  , intValue1,  intValue2);
-    Log.notice   (F("Log as Info with hex values     : %x, %X"CR                 ), intValue1,  intValue1);
-    Log.notice   (  "Log as Info with hex values     : %x, %X"CR                  , intValue2,  intValue2);
-    Log.notice   (F("Log as Info with binary values  : %b, %B"CR                 ), intValue1,  intValue1);
-    Log.notice   (  "Log as Info with binary values  : %b, %B"CR                  , intValue2,  intValue2);
-    Log.notice   (F("Log as Info with long values    : %l, %l"CR                 ), longValue1, longValue2);
-    Log.notice   (  "Log as Info with bool values    : %t, %T"CR                  , boolValue1, boolValue2);
-    Log.notice   (F("Log as Info with string value   : %s"CR                     ), charArray);
-    Log.notice   (  "Log as Info with string value   : %s"CR                      , stringValue1.c_str());
-    Log.notice   (F("Log as Debug with mixed values  : %d, %d, %l, %l, %t, %T"CR ), intValue1 , intValue2,
+    Log.notice   (  "Log as Info with integer values : %d, %d" CR                  , intValue1,  intValue2);
+    Log.notice   (F("Log as Info with hex values     : %x, %X" CR                 ), intValue1,  intValue1);
+    Log.notice   (  "Log as Info with hex values     : %x, %X" CR                  , intValue2,  intValue2);
+    Log.notice   (F("Log as Info with binary values  : %b, %B" CR                 ), intValue1,  intValue1);
+    Log.notice   (  "Log as Info with binary values  : %b, %B" CR                  , intValue2,  intValue2);
+    Log.notice   (F("Log as Info with long values    : %l, %l" CR                 ), longValue1, longValue2);
+    Log.notice   (  "Log as Info with bool values    : %t, %T" CR                  , boolValue1, boolValue2);
+    Log.notice   (F("Log as Info with string value   : %s" CR                     ), charArray);
+    Log.notice   (  "Log as Info with string value   : %s" CR                      , stringValue1.c_str());
+    Log.notice   (F("Log as Debug with mixed values  : %d, %d, %l, %l, %t, %T" CR ), intValue1 , intValue2,
                 longValue1, longValue2, boolValue1, boolValue2);
-    Log.trace    (  "Log as Trace with bool value    : %T"CR                      , boolValue1);
-    Log.warning  (  "Log as Warning with bool value  : %T"CR                      , boolValue1);
-    Log.error    (  "Log as Error with bool value    : %T"CR                      , boolValue1);
-    Log.fatal    (  "Log as Fatal with bool value    : %T"CR                      , boolValue1);
-    Log.verbose  (F("Log as Vebose with bool value   : %T"CR CR CR               ), boolValue2);
+    Log.trace    (  "Log as Trace with bool value    : %T" CR                      , boolValue1);
+    Log.warning  (  "Log as Warning with bool value  : %T" CR                      , boolValue1);
+    Log.error    (  "Log as Error with bool value    : %T" CR                      , boolValue1);
+    Log.fatal    (  "Log as Fatal with bool value    : %T" CR                      , boolValue1);
+    Log.verbose  (F("Log as Vebose with bool value   : %T" CR CR CR               ), boolValue2);
     delay(5000);
 }
