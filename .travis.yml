@@ -10,7 +10,7 @@
     "sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino"
   ],
   "install": [
-    "ln -s $PWD /usr/local/share/arduino/libraries/ArduinoLog"
+    "sudo ln -s $PWD /usr/local/share/arduino/libraries/ArduinoLog"
   ],
   "script": [
     "arduino --verify --board arduino:avr:uno $PWD/examples/Log/Log.ino",
