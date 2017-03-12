@@ -15,11 +15,6 @@
     "url": "https://github.com/thijse/Arduino-Log/"
   },
   "homepage": "https://github.com/thijse/Arduino-Log/",
-  "export": {
-    "exclude": [
-      "extras",
-    ]
-  },
   "frameworks": [ "arduino",  ],
   "platforms": "*",
   "examples": "examples/*/*.ino"
