@@ -13,7 +13,7 @@
 		"url": "https://github.com/thijse/Arduino-Log.git"
 	},
 	"homepage": "https://github.com/thijse/Arduino-Log/",
-	"frameworks": "arduino",
+	"frameworks": ["arduino"],
 	"platforms": "*",
 	"examples": "examples/*/*.ino"
 }
