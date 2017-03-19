@@ -85,6 +85,11 @@ void Logging::printFormat(const char format, va_list *args) {
     return;
   }
 
+  if( format == 'D' || format == 'F') {
+    _logOutput->print(va_arg( *args, double ));
+    return;
+  }
+
   if( format == 'x' ) {
     _logOutput->print(va_arg( *args, int ),HEX);
     return;
