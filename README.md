@@ -108,6 +108,7 @@ where the format string can be used to format the log variables
 * %B	display as  binary number, prefixed by `0b'
 * %t	display as boolean value "t" or "f"
 * %T	display as boolean value "true" or "false"
+* %D,%F display as double value
 ```
 
 The format string may come from flash memory.
