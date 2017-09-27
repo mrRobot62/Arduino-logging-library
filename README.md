@@ -48,7 +48,7 @@ This package has not yet been published to the Arduino & PlatformIO package mana
     Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
 ```
 
-[See examples/ArduinoLog/Log.ino](examples/ArduinoLog/Log.ino)
+[See examples/Log/Log.ino](examples/Log/Log.ino)
 
 ## Usage
 
