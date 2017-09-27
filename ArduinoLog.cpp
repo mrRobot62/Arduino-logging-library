@@ -118,7 +118,7 @@ void Logging::printFormat(const char format, va_list *args) {
   }
 
   if( format == 'c' ) {
-    _logOutput->print(va_arg( *args, int ));
+    _logOutput->print((char) va_arg( *args, int ));
     return;
   }
 
