@@ -35,7 +35,7 @@ This package has not yet been published to the Arduino & PlatformIO package mana
  6. For more information, [read this extended manual](http://thijs.elenbaas.net/2012/07/installing-an-arduino-library/)
 
 
-##Quick start
+## Quick start
 
 ```c++
     Serial.begin(9600);
@@ -150,4 +150,3 @@ Bugfixes & features by
 ## Copyright
 
 ArduinoLog is provided Copyright © 2017 under MIT License.
-
