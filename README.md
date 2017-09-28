@@ -23,7 +23,7 @@ ArduinoLog is a minimalistic framework to help the programmer output log stateme
 
 ## Downloading
 
-This package has not yet been published to the Arduino & PlatformIO package managers and can therefore only be downloaded from GitHub. 
+This package has been published to the Arduino & PlatformIO package managers, but you can also download it from GitHub. 
 
 - By directly loading fetching the Archive from GitHub: 
  1. Go to [https://github.com/thijse/Arduino-Log](https://github.com/thijse/Arduino-Log)
