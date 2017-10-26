@@ -30,9 +30,11 @@ Logging	KEYWORD2	Logging library
 #######################################
 #	Constants	(LITERAL1)
 #######################################
-LOG_LEVEL_NOOUTPUT	LITERAL1	Constants
-LOG_LEVEL_ERRORS	LITERAL1	Constants
-LOG_LEVEL_INFOS	LITERAL1	Constants
-LOG_LEVEL_DEBUG	LITERAL1	Constants
+LOG_LEVEL_SILENT	LITERAL1	Constants
+LOG_LEVEL_FATAL	LITERAL1	Constants
+LOG_LEVEL_ERROR	LITERAL1	Constants
+LOG_LEVEL_WARNING	LITERAL1	Constants
+LOG_LEVEL_NOTICE	LITERAL1	Constants
+LOG_LEVEL_TRACE	LITERAL1	Constants
 LOG_LEVEL_VERBOSE	LITERAL1	Constants
 
