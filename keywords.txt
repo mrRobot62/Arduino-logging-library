@@ -21,6 +21,8 @@ notice	KEYWORD2	info output
 trace 	KEYWORD2	trace output
 verbose	KEYWORD2	verbose output
 begin	KEYWORD2	initialize library
+setPrefix	KEYWORD2	set prefix function
+setSuffix	KEYWORD2	set suffix function
 
 #######################################
 #	Instances	(KEYWORD2)

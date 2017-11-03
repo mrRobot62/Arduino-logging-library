@@ -37,6 +37,14 @@ void Logging::begin(int level, Print* logOutput, bool showLevel){
     _logOutput = logOutput;
 }
 
+void Logging::setPrefix(printfunction f){
+    _prefix = f;
+}
+
+void Logging::setSuffix(printfunction f){
+    _suffix = f;
+}
+
 void Logging::print(const __FlashStringHelper *format, va_list args) {
 #ifndef DISABLE_LOGGING	  	
   PGM_P p = reinterpret_cast<PGM_P>(format);
@@ -145,11 +153,4 @@ void Logging::printFormat(const char format, va_list *args) {
 }
  
 Logging Log = Logging();
-
- 
- 
-  
-
-
-
 

@@ -21,6 +21,7 @@ Licensed under the MIT License <http://opensource.org/licenses/MIT>.
 #else
 	#include "WProgram.h"
 #endif
+typedef void (*printfunction)(Print*);
 
 //#include <stdint.h>
 //#include <stddef.h>
@@ -103,6 +104,16 @@ public:
     */
     void begin(int level, Print *output, bool showLevel = true);
 
+	/**
+	 * Sets a function to be called before each log command.
+	 */
+	void setPrefix(printfunction);
+
+	/**
+	 * Sets a function to be called after each log command.
+	 */
+	void setSuffix(printfunction);
+
 	    /**
 	* Output a fatal error message. Output message contains
 	* F: followed by original message
@@ -113,14 +124,9 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-  template <class T> void fatal(T msg, ...){
+  template <class T, typename... Args> void fatal(T msg, Args... args){
 #ifndef DISABLE_LOGGING
-    if (LOG_LEVEL_FATAL <= _level) {
-      if (_showLevel) _logOutput->print("F: ");
-      va_list args;
-      va_start(args, msg);
-      print(msg,args);
-    }
+    printLevel(LOG_LEVEL_FATAL, msg, args...);
 #endif
   }
 
@@ -134,14 +140,9 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-  template <class T> void error(T msg, ...){
+  template <class T, typename... Args> void error(T msg, Args... args){
 #ifndef DISABLE_LOGGING
-    if (LOG_LEVEL_ERROR <= _level) {
-      if (_showLevel) _logOutput->print("E: ");
-      va_list args;
-      va_start(args, msg);
-      print(msg,args);
-    }
+    printLevel(LOG_LEVEL_ERROR, msg, args...);
 #endif
   }
     /**
@@ -155,14 +156,9 @@ public:
 	* \return void
 	*/
 
-  template <class T> void warning(T msg, ...){
+  template <class T, typename... Args> void warning(T msg, Args...args){
 #ifndef DISABLE_LOGGING
-    if (LOG_LEVEL_WARNING <= _level) {
-      if (_showLevel) _logOutput->print("W: ");
-      va_list args;
-      va_start(args, msg);
-      print(msg,args);
-    }
+    printLevel(LOG_LEVEL_WARNING, msg, args...);
 #endif
   }
     /**
@@ -176,14 +172,9 @@ public:
 	* \return void
 	*/
 
-  template <class T> void notice(T msg, ...){
+  template <class T, typename... Args> void notice(T msg, Args...args){
 #ifndef DISABLE_LOGGING
-    if (LOG_LEVEL_NOTICE <= _level) {
-	  if (_showLevel) _logOutput->print("N: ");
-      va_list args;
-      va_start(args, msg);
-      print(msg,args);
-    }
+    printLevel(LOG_LEVEL_NOTICE, msg, args...);
 #endif
   }
     /**
@@ -196,14 +187,9 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-  template <class T> void trace(T msg, ...){
+  template <class T, typename... Args> void trace(T msg, Args... args){
 #ifndef DISABLE_LOGGING
-    if (LOG_LEVEL_TRACE <= _level) {
-	  if (_showLevel) _logOutput->print("T: ");
-      va_list args;
-      va_start(args, msg);
-      print(msg,args);
-    }
+    printLevel(LOG_LEVEL_TRACE, msg, args...);
 #endif
   }
 
@@ -217,14 +203,9 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-  template <class T> void verbose(T msg, ...){
+  template <class T, typename... Args> void verbose(T msg, Args... args){
 #ifndef DISABLE_LOGGING
-    if (LOG_LEVEL_VERBOSE <= _level) {
-	  if (_showLevel) _logOutput->print("V: ");
-      va_list args;
-      va_start(args, msg);
-      print(msg,args);
-    }
+    printLevel(LOG_LEVEL_VERBOSE, msg, args...);
 #endif
   }
 
@@ -232,6 +213,24 @@ private:
     void print(const char *format, va_list args);
     void print(const __FlashStringHelper *format, va_list args);
     void printFormat(const char format, va_list *args);
+    printfunction _prefix = NULL;
+    printfunction _suffix = NULL;
+    template <class T> void printLevel(int level, T msg, ...){
+#ifndef DISABLE_LOGGING
+      if (level <= _level) {
+        if(_prefix != NULL) _prefix(_logOutput);
+        if (_showLevel) {
+          char levels[] = "FEWNTV";
+          _logOutput->print(levels[level - 1]);
+          _logOutput->print(": ");
+        }
+        va_list args;
+        va_start(args, msg);
+        print(msg,args);
+        if(_suffix != NULL) _suffix(_logOutput);
+      }
+#endif
+    }
 };
 
 extern Logging Log;
