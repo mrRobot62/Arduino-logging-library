@@ -26,6 +26,8 @@ void setup() {
     //       this will significantly reduce your project size
 
     Log.begin(LOG_LEVEL_VERBOSE, &Serial);
+    //Log.setPrefix(printTimestamp); // Uncomment to get timestamps as prefix
+    //Log.setSuffix(printNewline); // Uncomment to get newline as suffix
 
     //Start logging
 
@@ -68,3 +70,14 @@ void loop() {
     Log.verbose  (F("Log as Verbose with bool value   : %T" CR CR CR               ), boolValue2);
     delay(5000);
 }
+
+void printTimestamp(Print* _logOutput) {
+  char c[12];
+  int m = sprintf(c, "%10lu ", millis());
+  _logOutput->print(c);
+}
+
+void printNewline(Print* _logOutput) {
+  _logOutput->print('\n');
+}
+
