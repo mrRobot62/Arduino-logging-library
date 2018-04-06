@@ -95,8 +95,17 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-    void Error(char* msg, ...);
-	
+
+  template <class T> void Error(T msg, ...){
+    if (LOG_LEVEL_ERRORS <= _level) {
+      print (F("ERROR: "),0);
+      va_list args;
+      va_start(args, msg);
+      print(msg,args);
+    }
+  }
+
+
     /**
 	* Output an info message. Output message contains
 	* Info messages are printed out at l
@@ -107,8 +116,14 @@ public:
 	* \return void
 	*/
 
-   void Info(char* msg, ...);
-	
+  template <class T> void Info(T msg, ...){
+    if (LOG_LEVEL_INFOS <= _level) {
+      va_list args;
+      va_start(args, msg);
+      print(msg,args);
+    }
+  }
+
     /**
 	* Output an debug message. Output message contains
 	* Debug messages are printed out at l
@@ -119,8 +134,16 @@ public:
 	* \return void
 	*/
 
-    void Debug(char* msg, ...);
-	
+
+  template <class T> void Debug(T msg, ...){
+    if (LOG_LEVEL_DEBUG <= _level) {
+      va_list args;
+      va_start(args, msg);
+      print(msg,args);
+    }
+  }
+
+
     /**
 	* Output an verbose message. Output message contains
 	* Debug messages are printed out at l
@@ -131,11 +154,19 @@ public:
 	* \return void
 	*/
 
-    void Verbose(char* msg, ...);   
+  template <class T> void Verbose(T msg, ...){
+    if (LOG_LEVEL_VERBOSE <= _level) {
+      va_list args;
+      va_start(args, msg);
+      print(msg,args);
+    }
+  }
 
-    
+
 private:
     void print(const char *format, va_list args);
+    void print(const __FlashStringHelper *format, va_list args);
+    void printFormat(const char format, va_list *args);
 };
 
 extern Logging Log;
