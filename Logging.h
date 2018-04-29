@@ -7,11 +7,9 @@
 #else
 	#include "WProgram.h"
 #endif
-//#include "pins_arduino.h"
-extern "C" {
-  #include <avr/io.h>
-}
 
+#include <ctype.h>
+#include <pgmspace.h>
 
 #define LOG_LEVEL_NOOUTPUT 0 
 #define LOG_LEVEL_ERRORS 1
@@ -22,8 +20,6 @@ extern "C" {
 // default loglevel if nothing is set from user
 #define LOGLEVEL LOG_LEVEL_DEBUG 
 
-
-#define CR "\r\n"
 #define LOGGING_VERSION 1
 
 /*!
@@ -84,7 +80,8 @@ public:
 	* \return void
 	*
 	*/
-	void Init(int level, long baud);
+	void init(int level, long baud);
+	void init(int level, long baud, Stream* additionalLogger);
 	
     /**
 	* Output an error message. Output message contains
@@ -95,7 +92,7 @@ public:
 	* \param ... any number of variables
 	* \return void
 	*/
-    void Error(char* msg, ...);
+    void error(const char* msg, ...);
 	
     /**
 	* Output an info message. Output message contains
@@ -107,7 +104,7 @@ public:
 	* \return void
 	*/
 
-   void Info(char* msg, ...);
+   void info(const char* msg, ...);
 	
     /**
 	* Output an debug message. Output message contains
@@ -119,7 +116,7 @@ public:
 	* \return void
 	*/
 
-    void Debug(char* msg, ...);
+    void debug(const char* msg, ...);
 	
     /**
 	* Output an verbose message. Output message contains
@@ -131,11 +128,15 @@ public:
 	* \return void
 	*/
 
-    void Verbose(char* msg, ...);   
-
+    void verbose(const char* msg, ...);   
     
 private:
-    void print(const char *format, va_list args);
+    void print(const char *msg);
+    void printFormat(const char *format, va_list args);
+    void printFormat(Stream *stream, const char *format, va_list args);
+	
+	Stream* _stream;
+	Stream* _additionalLogger;
 };
 
 extern Logging Log;
