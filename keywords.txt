@@ -9,17 +9,17 @@
 #######################################
 #	Methods	and	Functions	(KEYWORD2)
 ####################################### 
-Error	KEYWORD2	error output
-Warn	KEYWORD2	warning output
-Info	KEYWORD2	info output
-Debug	KEYWORD2	debug output
-Verbose	KEYWORD2	verbose output
-Init	KEYWORD2	initialiazing
+Error	KEYWORD2
+Warn	KEYWORD2
+Info	KEYWORD2
+Debug	KEYWORD2
+Verbose	KEYWORD2
+Init	KEYWORD2
 
 #######################################
 #	Instances	(KEYWORD2)
 #######################################
-Logging	KEYWORD2	Logging library
+Logging	KEYWORD2
 
 #######################################
 #	Constants	(LITERAL1)
