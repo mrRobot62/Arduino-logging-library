@@ -5,8 +5,8 @@
 #######################################
 #	Instances	(KEYWORD1)
 #######################################
-Logging	KEYWORD1	Logging library
-Log	    KEYWORD1	Logging library
+Logging	KEYWORD1
+Log	    KEYWORD1
 #######################################
 #	Datatypes	(KEYWORD1)
 #######################################
@@ -14,20 +14,20 @@ Log	    KEYWORD1	Logging library
 #######################################
 #	Methods	and	Functions	(KEYWORD2)
 ####################################### 
-fatal	KEYWORD2	fatal error output
-error	KEYWORD2	error output
-warning	KEYWORD2	warning output
-notice	KEYWORD2	info output
-trace 	KEYWORD2	trace output
-verbose	KEYWORD2	verbose output
-begin	KEYWORD2	initialize library
-setPrefix	KEYWORD2	set prefix function
-setSuffix	KEYWORD2	set suffix function
+fatal	KEYWORD2
+error	KEYWORD2
+warning	KEYWORD2
+notice	KEYWORD2
+trace 	KEYWORD2
+verbose	KEYWORD2
+begin	KEYWORD2
+setPrefix	KEYWORD2
+setSuffix	KEYWORD2
 
 #######################################
 #	Instances	(KEYWORD2)
 #######################################
-Logging	KEYWORD2	Logging library
+Logging	KEYWORD2
 
 #######################################
 #	Constants	(LITERAL1)
