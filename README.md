@@ -99,6 +99,7 @@ where the format string can be used to format the log variables
 
 ```
 * %s	display as string (char*)
+* %S    display as string from flash memory (__FlashStringHelper* or char[] PROGMEM)
 * %c	display as single character
 * %d	display as integer value
 * %l	display as long value
@@ -120,9 +121,27 @@ examples
     Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
     Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
     Log.notice  (  "Log as Notice  with hexadecimal values        : %x, %X"CR  , 21  , 348972);
+    Log.trace   (  "Log as Trace   with Flash string              : %S"CR    ) , F("value")  );
     Log.verbose (F("Log as Verbose with bool value from Flash     : %t, %T"CR) , true, false );
 ```
 
+Flash strings log variables can be stored and reused at several places to reduce final hex size.
+
+```c++
+    const __FlashStringHelper * logAs = F("Log as");
+    Log.fatal   (F("%S Fatal   with string value from Flash   : %s"CR    ) , logAs, "value"     );
+    Log.error   (  "%S Error   with binary values             : %b, %B"CR  , logAs, 23  , 345808);
+```
+
+If you want to declare that string globally (oustide of a function), you will need to use the PROGMEM macro instead.
+
+```c++
+const char LOG_AS[] PROGMEM = "Log as ";
+
+void logError() {
+    Log.error   (  "%S Error   with binary values             : %b, %B"CR  , PSTRPTR(LOG_AS), 23  , 345808);
+}
+```
 ### Disable library
 
 (if your code is completely tested) all logging code can be compiled out. Do this by uncommenting  

@@ -9,8 +9,9 @@
 int          intValue1  , intValue2;
 long         longValue1, longValue2;
 bool         boolValue1, boolValue2;
-const char * charArray    = "this is a string";
-String       stringValue1 = "this is a string";
+const char * charArray                 = "this is a string";
+const char   flashCharArray1[] PROGMEM = "this is a string";
+String       stringValue1              = "this is a string";
 float        floatValue;
 double       doubleValue;
 
@@ -37,7 +38,6 @@ void setup() {
 }
 
 void loop() {
-
     // set up some random variables
     intValue1  = random(100);
     intValue2  = random(10000);
@@ -48,6 +48,9 @@ void loop() {
     floatValue = 12.34;
     doubleValue= 1234.56789;
 
+    //__FlashStringHelper cannot be declared oustide a function
+    const __FlashStringHelper * flashCharArray2 = F("this is a string");
+
     Log.notice   (  "Log as Info with integer values : %d, %d" CR                  , intValue1,  intValue2);
     Log.notice   (F("Log as Info with hex values     : %x, %X" CR                 ), intValue1,  intValue1);
     Log.notice   (  "Log as Info with hex values     : %x, %X" CR                  , intValue2,  intValue2);
@@ -56,6 +59,8 @@ void loop() {
     Log.notice   (F("Log as Info with long values    : %l, %l" CR                 ), longValue1, longValue2);
     Log.notice   (  "Log as Info with bool values    : %t, %T" CR                  , boolValue1, boolValue2);
     Log.notice   (F("Log as Info with string value   : %s" CR                     ), charArray);
+    Log.notice   (  "Log as Info with Flash string value   : %S" CR                , flashCharArray1);
+    Log.notice   (  "Log as Info with Flash string value   : %S" CR                , flashCharArray2);
     Log.notice   (  "Log as Info with string value   : %s" CR                      , stringValue1.c_str());
     Log.notice   (F("Log as Info with float value   : %F" CR                      ), floatValue);
     Log.notice   (  "Log as Info with float value   : %F" CR                       , floatValue);
