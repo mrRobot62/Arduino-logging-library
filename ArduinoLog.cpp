@@ -88,6 +88,12 @@ void Logging::printFormat(const char format, va_list *args) {
     return;
   }
 
+  if( format == 'S' ) {
+    register __FlashStringHelper *s = (__FlashStringHelper *)va_arg( *args, int );
+    _logOutput->print(s);
+    return;
+  }
+  
   if( format == 'd' || format == 'i') {
     _logOutput->print(va_arg( *args, int ),DEC);
     return;
