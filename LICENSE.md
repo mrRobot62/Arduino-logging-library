@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 Thijs Elenbaas, MrRobot62, rahuldeo2047, NOX73, dhylands
+Copyright (c) 2017,2018 Thijs Elenbaas, MrRobot62, rahuldeo2047, NOX73, dhylands
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
