@@ -159,6 +159,9 @@ Bugfixes & features by
 * [rahuldeo2047](https://github.com/rahuldeo2047)
 * [NOX73](https://github.com/NOX73)
 * [dhylands](https://github.com/dhylands)
+* [Josha](https://github.com/Josha)
+* [blemasle](https://github.com/blemasle)
+* [mfalkvidd](https://github.com/mfalkvidd)
 
 
 ## On using and modifying libraries
@@ -168,4 +171,4 @@ Bugfixes & features by
 
 ## Copyright
 
-ArduinoLog is provided Copyright © 2017 under MIT License.
+ArduinoLog is provided Copyright © 2017,2018 under MIT License.
