@@ -5,7 +5,7 @@
  /_/ \_\_|_\___/ \___/|___|_|\_|\___/|____\___/ \___|
 
   Log library for Arduino
-  version 1.0.0
+  version 1.0.3
   https://github.com/thijse/Arduino-Log
 
 Licensed under the MIT License <http://opensource.org/licenses/MIT>.
@@ -40,7 +40,7 @@ typedef void (*printfunction)(Print*);
 #define LOG_LEVEL_VERBOSE 6
 
 #define CR "\n"
-#define LOGGING_VERSION 1_0_0
+#define LOGGING_VERSION 1_0_3
 
 /*!
  Logging is a helper class to output informations over
