@@ -153,15 +153,15 @@ in `Logging.h`. This may significantly reduce your project size.
 ## Credit
 
 Based on library by 
-* [/mrRobot62](https://github.com/mrRobot62)  
+* [Bernd Klein](https://github.com/mrRobot62)  
 
 Bugfixes & features by
 * [rahuldeo2047](https://github.com/rahuldeo2047)
 * [NOX73](https://github.com/NOX73)
-* [dhylands](https://github.com/dhylands)
-* [Josha](https://github.com/Josha)
-* [blemasle](https://github.com/blemasle)
-* [mfalkvidd](https://github.com/mfalkvidd)
+* [Dave Hylands](https://github.com/dhylands)
+* [Jos Hanon](https://github.com/Josha)
+* [Bertrand Lemasle](https://github.com/blemasle)
+* [Mikael Falkvidd](https://github.com/mfalkvidd)
 
 
 ## On using and modifying libraries
