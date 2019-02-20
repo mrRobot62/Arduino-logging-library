@@ -106,6 +106,38 @@ public:
 	void begin(int level, Print *output, bool showLevel = true);
 
 	/**
+	 * Set the log level.
+	 * 
+	 * \param level - The new log level.
+	 * \return void
+	 */
+	void setLevel(int level);
+
+	/**
+	 * Get the log level.
+	 *
+	 * \return The current log level.
+	 */
+	int getLevel() const;
+
+	/**
+	 * Set whether to show the log level.
+	 * 
+	 * \param showLevel - true if the log level should be shown for each log
+	 *                    false otherwise.
+	 * \return void
+	 */
+	void setShowLevel(bool showLevel);
+
+	/**
+	 * Get whether the log level is shown during logging
+	 * 
+	 * \return true if the log level is be shown for each log
+	 *         false otherwise.
+	 */
+	bool getShowLevel() const;
+
+	/**
 	 * Sets a function to be called before each log command.
 	 * 
 	 * \param f - The function to be called
