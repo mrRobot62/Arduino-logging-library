@@ -112,18 +112,9 @@ where the format string can be used to format the log variables
 * %D,%F display as double value
 ```
 
-The format string may come from flash memory.
+The format string may come from flash memory. Newlines can be added using the CR keyword or by using the ...ln version of each of the log functions.
 
-examples
-
-```c++
-    Log.fatal   (F("Log as Fatal   with string value from Flash   : %s"CR    ) , "value"     );
-    Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
-    Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
-    Log.notice  (  "Log as Notice  with hexadecimal values        : %x, %X"CR  , 21  , 348972);
-    Log.trace   (  "Log as Trace   with Flash string              : %S"CR    ) , F("value")  );
-    Log.verbose (F("Log as Verbose with bool value from Flash     : %t, %T"CR) , true, false );
-```
+### Storing messages in Flash memory
 
 Flash strings log variables can be stored and reused at several places to reduce final hex size.
 
@@ -142,6 +133,18 @@ void logError() {
     Log.error   (  "%S Error   with binary values             : %b, %B"CR  , PSTRPTR(LOG_AS), 23  , 345808);
 }
 ```
+
+### Examples
+
+```c++
+    Log.fatal     (F("Log as Fatal   with string value from Flash   : %s"CR    ) , "value"     );
+    Log.errorln   (  "Log as Error   with binary values             : %b, %B"    , 23  , 345808);
+    Log.warning   (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
+    Log.notice    (  "Log as Notice  with hexadecimal values        : %x, %X"CR  , 21  , 348972);
+    Log.trace     (  "Log as Trace   with Flash string              : %S"CR    ) , F("value")  );
+    Log.verboseln (F("Log as Verbose with bool value from Flash     : %t, %T"  ) , true, false );
+```
+
 ### Disable library
 
 (if your code is completely tested) all logging code can be compiled out. Do this by uncommenting  
