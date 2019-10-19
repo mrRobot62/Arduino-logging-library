@@ -174,4 +174,4 @@ Bugfixes & features by
 
 ## Copyright
 
-ArduinoLog is provided Copyright © 2017,2018 under MIT License.
+ArduinoLog is provided Copyright © 2017,2018, 2019 under MIT License.
