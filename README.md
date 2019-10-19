@@ -112,7 +112,7 @@ where the format string can be used to format the log variables
 * %D,%F display as double value
 ```
 
-The format string may come from flash memory. Newlines can be added using the CR keyword or by using the ...ln version of each of the log functions.
+ Newlines can be added using the CR keyword or by using the ...ln version of each of the log functions.
 
 ### Storing messages in Flash memory
 
@@ -124,7 +124,7 @@ Flash strings log variables can be stored and reused at several places to reduce
     Log.error   (  "%S Error   with binary values             : %b, %B"CR  , logAs, 23  , 345808);
 ```
 
-If you want to declare that string globally (oustide of a function), you will need to use the PROGMEM macro instead.
+If you want to declare that string globally (outside of a function), you will need to use the PROGMEM macro instead.
 
 ```c++
 const char LOG_AS[] PROGMEM = "Log as ";
