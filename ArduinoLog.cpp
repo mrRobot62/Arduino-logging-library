@@ -169,6 +169,10 @@ void Logging::printFormat(const char format, va_list *args) {
 	{
 		_logOutput->print(va_arg(*args, long), DEC);
 	}
+	else if (format == 'u')
+	{
+		_logOutput->print(va_arg(*args, unsigned long), DEC);
+	}
 	else if (format == 'c')
 	{
 		_logOutput->print((char) va_arg(*args, int));
