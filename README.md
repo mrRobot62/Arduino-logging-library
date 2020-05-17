@@ -103,6 +103,7 @@ where the format string can be used to format the log variables
 * %c	display as single character
 * %d	display as integer value
 * %l	display as long value
+* %u	display as unsigned long value
 * %x	display as hexadecimal value
 * %X	display as hexadecimal value prefixed by `0x`
 * %b	display as  binary number
