@@ -104,36 +104,62 @@ void Logging::print(const __FlashStringHelper *format, va_list args)
 {
 #ifndef DISABLE_LOGGING	  	
 	PGM_P p = reinterpret_cast<PGM_P>(format);
+// This copy is only necessary on some architectures (x86) to change a passed
+// array in to a va_list.
+#ifdef __x86_64__
+	va_list args_copy;
+	va_copy(args_copy, args);
+#endif
 	char c = pgm_read_byte(p++);
 	for(;c != 0; c = pgm_read_byte(p++))
 	{
 		if (c == '%')
 		{
 			c = pgm_read_byte(p++);
+#ifdef __x86_64__
+			printFormat(c, &args_copy);
+#else
 			printFormat(c, &args);
+#endif
 		}
 		else
 		{
 			_logOutput->print(c);
 		}
 	}
+#ifdef __x86_64__
+	va_end(args_copy);
+#endif
 #endif
 }
 
 void Logging::print(const char *format, va_list args) {
 #ifndef DISABLE_LOGGING	  	
+// This copy is only necessary on some architectures (x86) to change a passed
+// array in to a va_list.
+#ifdef __x86_64__
+	va_list args_copy;
+	va_copy(args_copy, args);
+#endif
 	for (; *format != 0; ++format)
 	{
 		if (*format == '%')
 		{
 			++format;
+#ifdef __x86_64__
+			printFormat(*format, &args_copy);
+#else
 			printFormat(*format, &args);
+#endif
 		}
 		else
 		{
 			_logOutput->print(*format);
 		}
 	}
+#ifdef __x86_64__
+	va_end(args_copy);
+#endif
 #endif
 }
 
