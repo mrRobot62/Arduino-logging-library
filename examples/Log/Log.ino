@@ -1,8 +1,15 @@
 #include <ArduinoLog.h>
+/*
+    _   ___ ___  _   _ ___ _  _  ___  _    ___   ___
+   /_\ | _ \   \| | | |_ _| \| |/ _ \| |  / _ \ / __|
+  / _ \|   / |) | |_| || || .` | (_) | |_| (_) | (_ |
+ /_/ \_\_|_\___/ \___/|___|_|\_|\___/|____\___/ \___|
 
-/*!
-* This example sketch shows most of the features of the ArduinoLog library
-*
+ Log library example
+ Licensed under the MIT License <http://opensource.org/licenses/MIT>.
+
+ This example sketch shows most of the features of the ArduinoLog library
+
 */
 
 
@@ -28,7 +35,7 @@ void setup() {
 
     Log.begin(LOG_LEVEL_VERBOSE, &Serial);
     //Log.setPrefix(printTimestamp); // Uncomment to get timestamps as prefix
-    //Log.setSuffix(printNewline); // Uncomment to get newline as suffix
+    //Log.setSuffix(printNewline);   // Uncomment to get newline as suffix
 
     //Start logging
 
@@ -48,7 +55,7 @@ void loop() {
     floatValue = 12.34;
     doubleValue= 1234.56789;
 
-    //__FlashStringHelper cannot be declared oustide a function
+    //__FlashStringHelper cannot be declared outside a function
     const __FlashStringHelper * flashCharArray2 = F("this is a string");
 
     Log.notice   (  "Log as Info with integer values : %d, %d" CR                  , intValue1,  intValue2);
@@ -68,11 +75,17 @@ void loop() {
     Log.notice   (  "Log as Info with double value   : %D" CR                      , doubleValue);
     Log.notice   (F("Log as Debug with mixed values  : %d, %d, %l, %l, %t, %T" CR ), intValue1 , intValue2,
                 longValue1, longValue2, boolValue1, boolValue2);
+    Log.noticeln (  "Log as Info with integer values : %d, %d"                     , intValue1, intValue2);
     Log.trace    (  "Log as Trace with bool value    : %T" CR                      , boolValue1);
+    Log.traceln  (  "Log as Trace with bool value    : %T"                         , boolValue1);
     Log.warning  (  "Log as Warning with bool value  : %T" CR                      , boolValue1);
+    Log.warningln(  "Log as Warning with bool value  : %T"                         , boolValue1);
     Log.error    (  "Log as Error with bool value    : %T" CR                      , boolValue1);
+    Log.errorln  (  "Log as Error with bool value    : %T"                         , boolValue1);
     Log.fatal    (  "Log as Fatal with bool value    : %T" CR                      , boolValue1);
-    Log.verbose  (F("Log as Verbose with bool value   : %T" CR CR CR               ), boolValue2);
+    Log.fatalln  (  "Log as Fatal with bool value    : %T"                         , boolValue1);
+    Log.verboseln(F("Log as Verbose with bool value   : %T"                       ), boolValue2);
+    Log.verbose  (F("Log as Verbose with bool value   : %T" CR CR CR              ), boolValue2);
     delay(5000);
 }
 

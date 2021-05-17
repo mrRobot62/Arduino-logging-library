@@ -5,15 +5,13 @@
  /_/ \_\_|_\___/ \___/|___|_|\_|\___/|____\___/ \___|
 
   Log library for Arduino
-  version 1.0.3
+  version 1.0.4
   https://github.com/thijse/Arduino-Log
 
 Licensed under the MIT License <http://opensource.org/licenses/MIT>.
 
 */
-
-#ifndef LOGGING_H
-#define LOGGING_H
+#pragma once
 #include <inttypes.h>
 #include <stdarg.h>
 #if defined(ARDUINO) && ARDUINO >= 100
@@ -39,7 +37,7 @@ typedef void (*printfunction)(Print*);
 #define LOG_LEVEL_VERBOSE 6
 
 #define CR "\n"
-#define LOGGING_VERSION 1_0_3
+#define LOGGING_VERSION 1_0_4
 
 /**
  * Logging is a helper class to output informations over
@@ -86,8 +84,8 @@ public:
 	Logging()
 #ifndef DISABLE_LOGGING
 		: _level(LOG_LEVEL_SILENT),
-		_showLevel(true),
-		_logOutput(NULL)
+   		  _showLevel(true),
+		  _logOutput(NULL)
 #endif
 	{
 
@@ -163,12 +161,17 @@ public:
 	 * \param ... any number of variables
 	 * \return void
 	 */
-	template <class T, typename... Args> void fatal(T msg, Args... args)
-	{
+  template <class T, typename... Args> void fatal(T msg, Args... args){
 #ifndef DISABLE_LOGGING
-		printLevel(LOG_LEVEL_FATAL, msg, args...);
+    printLevel(LOG_LEVEL_FATAL, false, msg, args...);
 #endif
-	}
+  }
+
+  template <class T, typename... Args> void fatalln(T msg, Args... args){
+#ifndef DISABLE_LOGGING
+    printLevel(LOG_LEVEL_FATAL, true, msg, args...);
+#endif
+  }
 
 	/**
 	 * Output an error message. Output message contains
@@ -180,12 +183,17 @@ public:
 	 * \param ... any number of variables
 	 * \return void
 	 */
-	template <class T, typename... Args> void error(T msg, Args... args){
+  template <class T, typename... Args> void error(T msg, Args... args){
 #ifndef DISABLE_LOGGING
-		printLevel(LOG_LEVEL_ERROR, msg, args...);
+    printLevel(LOG_LEVEL_ERROR, false, msg, args...);
 #endif
-	}
-
+  }
+  
+   template <class T, typename... Args> void errorln(T msg, Args... args){
+#ifndef DISABLE_LOGGING
+    printLevel(LOG_LEVEL_ERROR, true, msg, args...);
+#endif
+  } 
 	/**
 	 * Output a warning message. Output message contains
 	 * W: followed by original message
@@ -196,12 +204,17 @@ public:
 	 * \param ... any number of variables
 	 * \return void
 	 */
-	template <class T, typename... Args> void warning(T msg, Args...args)
-	{
+  template <class T, typename... Args> void warning(T msg, Args...args){
 #ifndef DISABLE_LOGGING
-		printLevel(LOG_LEVEL_WARNING, msg, args...);
+    printLevel(LOG_LEVEL_WARNING, false, msg, args...);
 #endif
-	}
+  }
+  
+   template <class T, typename... Args> void warningln(T msg, Args...args){
+#ifndef DISABLE_LOGGING
+    printLevel(LOG_LEVEL_WARNING, true, msg, args...);
+#endif
+  } 
 
 	/**
 	 * Output a notice message. Output message contains
@@ -213,12 +226,17 @@ public:
 	 * \param ... any number of variables
 	 * \return void
 	 */
-	template <class T, typename... Args> void notice(T msg, Args...args)
-	{
+  template <class T, typename... Args> void notice(T msg, Args...args){
 #ifndef DISABLE_LOGGING
-		printLevel(LOG_LEVEL_NOTICE, msg, args...);
+    printLevel(LOG_LEVEL_NOTICE, false, msg, args...);
 #endif
-	}
+  }
+  
+  template <class T, typename... Args> void noticeln(T msg, Args...args){
+#ifndef DISABLE_LOGGING
+    printLevel(LOG_LEVEL_NOTICE, true, msg, args...);
+#endif
+  }  
 
 	/**
 	 * Output a trace message. Output message contains
@@ -230,10 +248,15 @@ public:
 	 * \param ... any number of variables
 	 * \return void
 	*/
-	template <class T, typename... Args> void trace(T msg, Args... args)
-	{
+  template <class T, typename... Args> void trace(T msg, Args... args){
 #ifndef DISABLE_LOGGING
-		printLevel(LOG_LEVEL_TRACE, msg, args...);
+    printLevel(LOG_LEVEL_TRACE, false, msg, args...);
+#endif
+  }
+
+  template <class T, typename... Args> void traceln(T msg, Args... args){
+#ifndef DISABLE_LOGGING
+    printLevel(LOG_LEVEL_TRACE, true, msg, args...);
 #endif
 	}
 
@@ -247,12 +270,17 @@ public:
 	 * \param ... any number of variables
 	 * \return void
 	 */
-	template <class T, typename... Args> void verbose(T msg, Args... args)
-	{
+  template <class T, typename... Args> void verbose(T msg, Args... args){
 #ifndef DISABLE_LOGGING
-		printLevel(LOG_LEVEL_VERBOSE, msg, args...);
+    printLevel(LOG_LEVEL_VERBOSE, false, msg, args...);
 #endif
-	}
+  }
+
+  template <class T, typename... Args> void verboseln(T msg, Args... args){
+#ifndef DISABLE_LOGGING
+    printLevel(LOG_LEVEL_VERBOSE, true, msg, args...);
+#endif
+  }
 
 private:
 	void print(const char *format, va_list args);
@@ -261,7 +289,7 @@ private:
 
 	void printFormat(const char format, va_list *args);
 
-	template <class T> void printLevel(int level, T msg, ...)
+	template <class T> void printLevel(int level, bool cr, T msg, ...)
 	{
 #ifndef DISABLE_LOGGING
 		if (level > _level)
@@ -283,7 +311,7 @@ private:
 		va_list args;
 		va_start(args, msg);
 		print(msg, args);
-
+        if (cr) { _logOutput->print(CR); }
 		if(_suffix != NULL)
 		{
 			_suffix(_logOutput);
@@ -302,5 +330,3 @@ private:
 };
 
 extern Logging Log;
-#endif
-

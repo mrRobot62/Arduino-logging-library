@@ -5,7 +5,7 @@
  /_/ \_\_|_\___/ \___/|___|_|\_|\___/|____\___/ \___|
                                                      
   Log library for Arduino
-  version 1.0.3
+  version 1.0.4
   https://github.com/thijse/Arduino-Log
 
 Licensed under the MIT License <http://opensource.org/licenses/MIT>.
@@ -125,57 +125,70 @@ void Logging::print(const char *format, va_list args) {
 
 void Logging::printFormat(const char format, va_list *args) {
 #ifndef DISABLE_LOGGING
+	if (format == '\0') return;
 	if (format == '%')
 	{
 		_logOutput->print(format);
+        return;
 	}
 	else if (format == 's')
 	{
 		register char *s = (char *)va_arg(*args, int);
 		_logOutput->print(s);
+        return;
 	}
 	else if (format == 'S')
 	{
 		register __FlashStringHelper *s = (__FlashStringHelper *)va_arg(*args, int);
 		_logOutput->print(s);
+        return;
 	}
 	else if (format == 'd' || format == 'i')
 	{
 		_logOutput->print(va_arg(*args, int), DEC);
+        return;
 	}
 	else if (format == 'D' || format == 'F')
 	{
 		_logOutput->print(va_arg(*args, double));
+        return;
 	}
 	else if (format == 'x')
 	{
 		_logOutput->print(va_arg(*args, int), HEX);
+        return;
 	}
 	else if (format == 'X')
 	{
 		_logOutput->print("0x");
 		_logOutput->print(va_arg(*args, int), HEX);
+        return;
 	}
 	else if (format == 'b')
 	{
 		_logOutput->print(va_arg(*args, int), BIN);
+        return;
 	}
 	else if (format == 'B')
 	{
 		_logOutput->print("0b");
 		_logOutput->print(va_arg(*args, int), BIN);
+        return;
 	}
 	else if (format == 'l')
 	{
 		_logOutput->print(va_arg(*args, long), DEC);
+        return;
 	}
 	else if (format == 'u')
 	{
 		_logOutput->print(va_arg(*args, unsigned long), DEC);
+		return;
 	}
 	else if (format == 'c')
 	{
 		_logOutput->print((char) va_arg(*args, int));
+        return;
 	}
 	else if(format == 't')
 	{
@@ -187,6 +200,7 @@ void Logging::printFormat(const char format, va_list *args) {
 		{
 			_logOutput->print("F");
 		}
+        return;
 	}
 	else if (format == 'T')
 	{
@@ -198,6 +212,7 @@ void Logging::printFormat(const char format, va_list *args) {
 		{
 			_logOutput->print(F("false"));
 		}
+        return;
 	}
 #endif
 }
