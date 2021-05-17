@@ -311,10 +311,14 @@ private:
 		va_list args;
 		va_start(args, msg);
 		print(msg, args);
-        if (cr) { _logOutput->print(CR); }
+
 		if(_suffix != NULL)
 		{
 			_suffix(_logOutput);
+		}
+		if (cr)
+		{
+		    _logOutput->print(CR);
 		}
 #endif
 	}

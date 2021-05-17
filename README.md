@@ -20,6 +20,7 @@ ArduinoLog is a minimalistic framework to help the programmer output log stateme
 
 * All Arduino boards (Uno, Due, Mini, Micro, Yun...)
 * ESP8266
+* ESP32
 
 ## Downloading
 
@@ -175,4 +176,4 @@ Bugfixes & features by
 
 ## Copyright
 
-ArduinoLog is provided Copyright © 2017,2018, 2019 under MIT License.
+ArduinoLog is provided Copyright © 2017,2018, 2019, 2021 under MIT License.

@@ -34,8 +34,7 @@ void setup() {
     //       this will significantly reduce your project size
 
     Log.begin(LOG_LEVEL_VERBOSE, &Serial);
-    //Log.setPrefix(printTimestamp); // Uncomment to get timestamps as prefix
-    //Log.setSuffix(printNewline);   // Uncomment to get newline as suffix
+
 
     //Start logging
 
@@ -75,7 +74,7 @@ void loop() {
     Log.notice   (  "Log as Info with double value   : %D" CR                      , doubleValue);
     Log.notice   (F("Log as Debug with mixed values  : %d, %d, %l, %l, %t, %T" CR ), intValue1 , intValue2,
                 longValue1, longValue2, boolValue1, boolValue2);
-    Log.noticeln (  "Log as Info with integer values : %d, %d"                     , intValue1, intValue2);
+
     Log.trace    (  "Log as Trace with bool value    : %T" CR                      , boolValue1);
     Log.traceln  (  "Log as Trace with bool value    : %T"                         , boolValue1);
     Log.warning  (  "Log as Warning with bool value  : %T" CR                      , boolValue1);
@@ -85,7 +84,14 @@ void loop() {
     Log.fatal    (  "Log as Fatal with bool value    : %T" CR                      , boolValue1);
     Log.fatalln  (  "Log as Fatal with bool value    : %T"                         , boolValue1);
     Log.verboseln(F("Log as Verbose with bool value   : %T"                       ), boolValue2);
-    Log.verbose  (F("Log as Verbose with bool value   : %T" CR CR CR              ), boolValue2);
+    Log.verbose  (F("Log as Verbose with bool value   : %T" CR                    ), boolValue2);
+
+    Log.setPrefix(printTimestamp); // set timestamp as prefix
+    Log.setSuffix(printCarret);   // set carret as suffix
+    Log.verboseln(F("Log with suffix & prefix"));
+    Log.setPrefix(NULL); // set timestamp as prefix
+    Log.setSuffix(NULL);   // set carret as suffix
+    
     delay(5000);
 }
 
@@ -95,7 +101,6 @@ void printTimestamp(Print* _logOutput) {
   _logOutput->print(c);
 }
 
-void printNewline(Print* _logOutput) {
-  _logOutput->print('\n');
+void printCarret(Print* _logOutput) {
+  _logOutput->print('>');
 }
-
