@@ -144,12 +144,26 @@ public:
 	void setPrefix(printfunction f);
 
 	/**
+     * clears prefix.
+     *
+     * \return void
+     */
+	void clearPrefix();
+
+	/**
 	 * Sets a function to be called after each log command.
 	 * 
 	 * \param f - The function to be called
 	 * \return void
 	 */
 	void setSuffix(printfunction f);
+
+	/**
+     * clears suffix.
+     *
+     * \return void
+     */
+	void clearSuffix();
 
 	/**
 	 * Output a fatal error message. Output message contains

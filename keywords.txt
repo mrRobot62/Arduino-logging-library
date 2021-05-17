@@ -33,6 +33,8 @@ setShowLevel	KEYWORD2
 getShowLevel	KEYWORD2
 setPrefix	KEYWORD2
 setSuffix	KEYWORD2
+clearPrefix	KEYWORD2
+clearSuffix	KEYWORD2
 
 #######################################
 #	Instances	(KEYWORD2)

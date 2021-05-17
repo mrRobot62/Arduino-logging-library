@@ -79,10 +79,24 @@ void Logging::setPrefix(printfunction f)
 #endif
 }
 
+void Logging::clearPrefix()
+{
+#ifndef DISABLE_LOGGING
+	_prefix = nullptr;
+#endif
+}
+
 void Logging::setSuffix(printfunction f)
 {
 #ifndef DISABLE_LOGGING
 	_suffix = f;
+#endif
+}
+
+void Logging::clearSuffix()
+{
+#ifndef DISABLE_LOGGING
+	_prefix = nullptr;
 #endif
 }
 
