@@ -133,7 +133,7 @@ If you want to declare that string globally (outside of a function), you will ne
 const char LOG_AS[] PROGMEM = "Log as ";
 
 void logError() {
-    Log.error   (  "%S Error   with binary values             : %b, %B"CR  , PSTRPTR(LOG_AS), 23  , 345808);
+    Log.error   (  "%S Error with binary values : %b, %B"CR  , PSTRPTR(LOG_AS), 23  , 345808);
 }
 ```
 
