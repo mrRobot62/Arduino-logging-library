@@ -115,8 +115,8 @@ where the format string can be used to format the log variables
 * %D,%F display as double value
 ```
 
- Newlines can be added using the CR keyword or by using the ...ln version of each of the log functions.
-
+ Newlines can be added using the CR keyword or by using the `...ln` version of each of the log functions.  The difference when using the `...ln` is that the newline is placed after suffix, and only a single newline can be added.
+ 
 ### Storing messages in Flash memory
 
 Flash strings log variables can be stored and reused at several places to reduce final hex size.
