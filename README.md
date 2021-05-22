@@ -1,3 +1,4 @@
+![ArduinoLog logo](/Images/logo.png?raw=true )
 ArduinoLog - C++ Log library for Arduino devices
 ====================
 [![Build Status](https://travis-ci.org/thijse/Arduino-Log.svg?branch=master)](https://travis-ci.org/thijse/Arduino-Log)
