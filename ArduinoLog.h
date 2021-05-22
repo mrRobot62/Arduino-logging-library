@@ -14,15 +14,24 @@ Licensed under the MIT License <http://opensource.org/licenses/MIT>.
 #pragma once
 #include <inttypes.h>
 #include <stdarg.h>
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
+
+// Non standard: Arduino.h also chosen if ARDUINO is not defined. To facilitate use in non-Arduino test environments
+#if ARDUINO < 100
 	#include "WProgram.h"
+#else
+	#include "Arduino.h"
+#endif
+
+// PGM stubs to facilitate use in non-Arduino test environments
+#ifndef PGM_P
+#define PGM_P  const char *
+#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+#define PSTR(str) (str)
+#define F(string_literal) (reinterpret_cast<const __FlashStringHelper *>(PSTR(string_literal)))
 #endif
 typedef void (*printfunction)(Print*);
 
-//#include <stdint.h>
-//#include <stddef.h>
+
 // *************************************************************************
 //  Uncomment line below to fully disable logging, and reduce project size
 // ************************************************************************

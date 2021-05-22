@@ -356,4 +356,12 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# Cmake
+cmake*/
+CMakeListsPrivate.txt
 
+# PlatformIO IDE data
+.pio/
+
+# Jetbrains IDE configuration
+.idea/
