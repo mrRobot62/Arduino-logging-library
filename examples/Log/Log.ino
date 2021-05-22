@@ -16,6 +16,7 @@
 int          intValue1  , intValue2;
 long         longValue1, longValue2;
 bool         boolValue1, boolValue2;
+const char   charNotPrintable          = 0x8B;
 const char * charArray                 = "this is a string";
 const char   flashCharArray1[] PROGMEM = "this is a string";
 String       stringValue1              = "this is a string";
@@ -64,6 +65,8 @@ void loop() {
     Log.notice   (  "Log as Info with binary values  : %b, %B" CR                  , intValue2,  intValue2);
     Log.notice   (F("Log as Info with long values    : %l, %l" CR                 ), longValue1, longValue2);
     Log.notice   (  "Log as Info with bool values    : %t, %T" CR                  , boolValue1, boolValue2);
+    Log.notice   (F("Log as Info with char value     : %c" CR                     ), charArray[0]);
+    Log.notice   (  "Log as Info with char value     : %C" CR                      , charNotPrintable);
     Log.notice   (F("Log as Info with string value   : %s" CR                     ), charArray);
     Log.notice   (  "Log as Info with Flash string value   : %S" CR                , flashCharArray1);
     Log.notice   (  "Log as Info with Flash string value   : %S" CR                , flashCharArray2);
