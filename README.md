@@ -175,6 +175,9 @@ Bugfixes & features by
 * [wrong-kendall] (https://github.com/wrong-kendall)
 * [bitli] (https://github.com/bitli)
 * [ChristianBauerAMDC] (https://github.com/bitli)
+=======
+* [bitli] (https://github.com/bitli)
+
 ## On using and modifying libraries
 
 - [http://www.arduino.cc/en/Main/Libraries](http://www.arduino.cc/en/Main/Libraries)
