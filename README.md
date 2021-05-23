@@ -79,7 +79,7 @@ The loglevels available are
 example
 
 ```
-    Log.begin(LOG_LEVEL_ERROR, &Serial, true);
+Log.begin(LOG_LEVEL_ERROR, &Serial, true);
 ```
 
 if you want to fully remove all logging code, uncomment `#define DISABLE_LOGGING` in `ArduinoLog.h`, this may significantly reduce your sketch/library size.
@@ -119,14 +119,35 @@ where the format string can be used to format the log variables
 
  Newlines can be added using the CR keyword or by using the `...ln` version of each of the log functions.  The difference when using the `...ln` is that the newline is placed after suffix, and only a single newline can be added.
 
+### Examples
+
+```c++
+Log.fatal     (F("Log as Fatal   with string value from Flash   : %s"CR    ) , "value"     );
+Log.errorln   (  "Log as Error   with binary values             : %b, %B"    , 23  , 345808);
+Log.warning   (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
+Log.notice    (  "Log as Notice  with hexadecimal values        : %x, %X"CR  , 21  , 348972);
+Log.trace     (  "Log as Trace   with Flash string              : %S"CR    ) , F("value")  );
+Log.verboseln (F("Log as Verbose with bool value from Flash     : %t, %T"  ) , true, false );
+```
+
+### Disable library
+
+(if your code is completely tested) all logging code can be compiled out. Do this by uncommenting  
+```c++
+#define DISABLE_LOGGING 
+```
+in `Logging.h`. This may significantly reduce your project size.
+
+## Advanced usage
+
 ### Displaying a printable object
 
 Some Arduino objects are printable. That is, they implement the `Printable` interface and are able for format their own representation
 As an example, the IPadress object is printable:
 
 ```c++
-    IPAddress   ipAddress(192, 168, 0, 1);
-	Log.verboseln ("ip address   : %p", ipAddress);
+IPAddress   ipAddress(192, 168, 0, 1);
+Log.verboseln ("ip address   : %p", ipAddress);
 ```
  
 ### Storing messages in Flash memory
@@ -134,9 +155,9 @@ As an example, the IPadress object is printable:
 Flash strings log variables can be stored and reused at several places to reduce final hex size.
 
 ```c++
-    const __FlashStringHelper * logAs = F("Log as");
-    Log.fatal   (F("%S Fatal   with string value from Flash   : %s"CR    ) , logAs, "value"     );
-    Log.error   (  "%S Error   with binary values             : %b, %B"CR  , logAs, 23  , 345808);
+const __FlashStringHelper * logAs = F("Log as");
+Log.fatal   (F("%S Fatal   with string value from Flash   : %s"CR    ) , logAs, "value"     );
+Log.error   (  "%S Error   with binary values             : %b, %B"CR  , logAs, 23  , 345808);
 ```
 
 If you want to declare that string globally (outside of a function), you will need to use the PROGMEM macro instead.
@@ -148,25 +169,6 @@ void logError() {
     Log.error   (  "%S Error with binary values : %b, %B"CR  , PSTRPTR(LOG_AS), 23  , 345808);
 }
 ```
-
-### Examples
-
-```c++
-    Log.fatal     (F("Log as Fatal   with string value from Flash   : %s"CR    ) , "value"     );
-    Log.errorln   (  "Log as Error   with binary values             : %b, %B"    , 23  , 345808);
-    Log.warning   (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
-    Log.notice    (  "Log as Notice  with hexadecimal values        : %x, %X"CR  , 21  , 348972);
-    Log.trace     (  "Log as Trace   with Flash string              : %S"CR    ) , F("value")  );
-    Log.verboseln (F("Log as Verbose with bool value from Flash     : %t, %T"  ) , true, false );
-```
-
-### Disable library
-
-(if your code is completely tested) all logging code can be compiled out. Do this by uncommenting  
-```c++
-#define DISABLE_LOGGING 
-```
-in `Logging.h`. This may significantly reduce your project size.
 
 ## Credit
 
@@ -185,7 +187,7 @@ Bugfixes & features by
 * [Florian](https://github.com/1technophile)
 * [wrong-kendall](https://github.com/wrong-kendall)
 * [bitli](https://github.com/bitli)
-* [ChristianBauerAMDC](https://github.com/bitli)
+* [ChristianBauerAMDC](https://github.com/ChristianBauerAMDC)
 
 ## On using and modifying libraries
 
