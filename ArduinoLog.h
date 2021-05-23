@@ -310,7 +310,7 @@ private:
 
 	void print(const __FlashStringHelper *format, va_list args);
 
-	void print(const Printable& obj, va_list& args)
+	void print(const Printable& obj, va_list args)
 	{
 		_logOutput->print(obj);
 	}

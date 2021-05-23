@@ -202,10 +202,14 @@ void Logging::printFormat(const char format, va_list *args) {
         if (h<0xF  ) _logOutput->print('0');
         _logOutput->print(h,HEX);
 	}
+	else if (format == 'p')
+	{		
+		register Printable *obj = (Printable *) va_arg(*args, int);
+		_logOutput->print(*obj);
+	}
 	else if (format == 'b')
 	{
 		_logOutput->print(va_arg(*args, int), BIN);
-        return;
 	}
 	else if (format == 'B')
 	{
@@ -233,7 +237,7 @@ void Logging::printFormat(const char format, va_list *args) {
 			if (c<0xF) _logOutput->print('0');
 			_logOutput->print(c, HEX);
 		}
-  }
+    }
 	else if(format == 't')
 	{
 		if (va_arg(*args, int) == 1)

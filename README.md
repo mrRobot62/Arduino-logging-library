@@ -50,7 +50,7 @@ This package has been published to the Arduino & PlatformIO package managers, bu
     Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
 ```
 
-[See examples/Log/Log.ino](examples/Log/Log.ino)
+See [examples/Log/Log.ino](examples/Log/Log.ino)
 
 ## Usage
 
@@ -114,9 +114,20 @@ where the format string can be used to format the log variables
 * %t	display as boolean value "t" or "f"
 * %T	display as boolean value "true" or "false"
 * %D,%F display as double value
+* %p    display a  printable object. 
 ```
 
  Newlines can be added using the CR keyword or by using the `...ln` version of each of the log functions.  The difference when using the `...ln` is that the newline is placed after suffix, and only a single newline can be added.
+
+### Displaying a printable object
+
+Some Arduino objects are printable. That is, they implement the `Printable` interface and are able for format their own representation
+As an example, the IPadress object is printable:
+
+```c++
+    IPAddress   ipAddress(192, 168, 0, 1);
+	Log.verboseln ("ip address   : %p", ipAddress);
+```
  
 ### Storing messages in Flash memory
 
@@ -175,8 +186,6 @@ Bugfixes & features by
 * [wrong-kendall](https://github.com/wrong-kendall)
 * [bitli](https://github.com/bitli)
 * [ChristianBauerAMDC](https://github.com/bitli)
-=======
-* [bitli] (https://github.com/bitli)
 
 ## On using and modifying libraries
 
