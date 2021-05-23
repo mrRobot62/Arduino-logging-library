@@ -29,7 +29,7 @@ Licensed under the MIT License <http://opensource.org/licenses/MIT>.
 #define PSTR(str) (str)
 #define F(string_literal) (reinterpret_cast<const __FlashStringHelper *>(PSTR(string_literal)))
 #endif
-typedef void (*printfunction)(Print*);
+typedef void (*printfunction)(Print*, int);
 
 
 // *************************************************************************
@@ -41,6 +41,7 @@ typedef void (*printfunction)(Print*);
 #define LOG_LEVEL_FATAL   1
 #define LOG_LEVEL_ERROR   2
 #define LOG_LEVEL_WARNING 3
+#define LOG_LEVEL_INFO    4
 #define LOG_LEVEL_NOTICE  4
 #define LOG_LEVEL_TRACE   5
 #define LOG_LEVEL_VERBOSE 6
@@ -79,7 +80,8 @@ typedef void (*printfunction)(Print*);
  * 1 - LOG_LEVEL_FATAL      fatal errors
  * 2 - LOG_LEVEL_ERROR      all errors
  * 3 - LOG_LEVEL_WARNING    errors and warnings
- * 4 - LOG_LEVEL_NOTICE     errors, warnings and notices
+ * 4 - LOG_LEVEL_INFO       errors, warnings and notices
+ * 4 - LOG_LEVEL_NOTICE     Same as INFO, kept for backward compatibility
  * 5 - LOG_LEVEL_TRACE      errors, warnings, notices, traces
  * 6 - LOG_LEVEL_VERBOSE    all
  */
@@ -332,11 +334,11 @@ private:
 
 		if (_prefix != NULL)
 		{
-			_prefix(_logOutput);
+			_prefix(_logOutput, level);
 		}
 
 		if (_showLevel) {
-			static const char levels[] = "FEWNTV";
+			static const char levels[] = "FEWITV";
 			_logOutput->print(levels[level - 1]);
 			_logOutput->print(": ");
 		}
@@ -347,7 +349,7 @@ private:
 
 		if(_suffix != NULL)
 		{
-			_suffix(_logOutput);
+			_suffix(_logOutput, level);
 		}
 		if (cr)
 		{
