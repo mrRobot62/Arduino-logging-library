@@ -169,8 +169,12 @@ Bugfixes & features by
 * [Jos Hanon](https://github.com/Josha)
 * [Bertrand Lemasle](https://github.com/blemasle)
 * [Mikael Falkvidd](https://github.com/mfalkvidd)
-* [bitli] https://github.com/bitli)
-
+* [Rowan Goemans] (https://github.com/rowanG077)
+* [Nils Bokermann] (https://github.com/sanddorn)
+* [Florian] (https://github.com/1technophile)
+* [wrong-kendall] (https://github.com/wrong-kendall)
+* [bitli] (https://github.com/bitli)
+* [ChristianBauerAMDC] (https://github.com/bitli)
 ## On using and modifying libraries
 
 - [http://www.arduino.cc/en/Main/Libraries](http://www.arduino.cc/en/Main/Libraries)

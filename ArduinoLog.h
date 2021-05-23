@@ -310,6 +310,11 @@ private:
 
 	void print(const __FlashStringHelper *format, va_list args);
 
+	void print(const Printable& obj, va_list& args)
+	{
+		_logOutput->print(obj);
+	}
+
 	void printFormat(const char format, va_list *args);
 
 	template <class T> void printLevel(int level, bool cr, T msg, ...)
@@ -319,6 +324,11 @@ private:
 		{
 			return;
 		}
+		if (level < LOG_LEVEL_SILENT) 
+		{
+			level = LOG_LEVEL_SILENT;
+		}
+			
 
 		if (_prefix != NULL)
 		{
