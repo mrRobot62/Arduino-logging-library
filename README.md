@@ -142,6 +142,8 @@ in `Logging.h`. This may significantly reduce your project size.
 
 ## Advanced usage
 
+Advanced features are demonstrated in example [examples/Log-advanced/Log-advanced.ino](examples/Log-advanced/Log-advanced.ino)
+
 ### Displaying a printable object
 
 Some Arduino objects are printable. That is, they implement the `Printable` interface and are able for format their own representation
@@ -176,9 +178,19 @@ void logError() {
 
 ### Custom logging format
 
-You can modify your logging format by defining a custom prefix & suffix for each log line
+You can modify your logging format by defining a custom prefix & suffix for each log line. For example:
+```c++
+void printPrefix(Print* _logOutput, int logLevel) {
+    printTimestamp(_logOutput);
+    printLogLevel (_logOutput, logLevel);
+}
+```
+will result in log timestamps very similar to e.g. NLOG:
+```
+00:47:51.432 VERBOSE Log with suffix & prefix
+```
 
-
+See
 
 ## Credit
 
@@ -206,4 +218,4 @@ Bugfixes & features by
 
 ## Copyright
 
-ArduinoLog Copyright © 2017,2018, 2019, 2021 is provided under MIT License.
+ArduinoLog (Copyright © 2017,2018, 2019, 2021) is provided under MIT License.
