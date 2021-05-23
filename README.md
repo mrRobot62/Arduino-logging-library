@@ -169,7 +169,7 @@ Bugfixes & features by
 * [Jos Hanon](https://github.com/Josha)
 * [Bertrand Lemasle](https://github.com/blemasle)
 * [Mikael Falkvidd](https://github.com/mfalkvidd)
-* [bitli] https://github.com/bitli)
+* [bitli] (https://github.com/bitli)
 
 ## On using and modifying libraries
 
