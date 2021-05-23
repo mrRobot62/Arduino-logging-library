@@ -52,6 +52,7 @@ This package has been published to the Arduino & PlatformIO package managers, bu
 
 See [examples/Log/Log.ino](examples/Log/Log.ino)
 
+
 ## Usage
 
 ### Initialisation
@@ -138,6 +139,7 @@ Log.verboseln (F("Log as Verbose with bool value from Flash     : %t, %T"  ) , t
 ```
 in `Logging.h`. This may significantly reduce your project size.
 
+
 ## Advanced usage
 
 ### Displaying a printable object
@@ -169,6 +171,7 @@ void logError() {
     Log.error   (  "%S Error with binary values : %b, %B"CR  , PSTRPTR(LOG_AS), 23  , 345808);
 }
 ```
+
 
 ## Credit
 
