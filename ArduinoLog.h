@@ -47,6 +47,8 @@ typedef void (*printfunction)(Print*, int);
 #define LOG_LEVEL_VERBOSE 6
 
 #define CR "\n"
+#define LF "\r"
+#define NL "\n\r"
 #define LOGGING_VERSION 1_0_4
 
 /**

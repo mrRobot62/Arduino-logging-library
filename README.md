@@ -118,7 +118,7 @@ where the format string can be used to format the log variables
 * %p    display a  printable object 
 ```
 
- Newlines can be added using the CR keyword or by using the `...ln` version of each of the log functions.  The difference when using the `...ln` is that the newline is placed after suffix, and only a single newline can be added.
+ Newlines can be added using the `CR` keyword or by using the `...ln` version of each of the log functions.  The difference when using the `...ln` is that the newline is placed after suffix, and only a single newline can be added. Some terminals prefer `NL` (New line).
 
 ### Examples
 
