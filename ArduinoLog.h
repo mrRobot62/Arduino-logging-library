@@ -5,7 +5,7 @@
  /_/ \_\_|_\___/ \___/|___|_|\_|\___/|____\___/ \___|
 
   Log library for Arduino
-  version 1.0.4
+  version 1.1.1
   https://github.com/thijse/Arduino-Log
 
 Licensed under the MIT License <http://opensource.org/licenses/MIT>.
@@ -262,6 +262,18 @@ public:
     printLevel(LOG_LEVEL_NOTICE, true, msg, args...);
 #endif
   }  
+
+  template <class T, typename... Args> void info(T msg, Args...args) {
+#ifndef DISABLE_LOGGING
+	  printLevel(LOG_LEVEL_INFO, false, msg, args...);
+#endif
+  }
+
+  template <class T, typename... Args> void infoln(T msg, Args...args) {
+#ifndef DISABLE_LOGGING
+	  printLevel(LOG_LEVEL_INFO, true, msg, args...);
+#endif
+  }
 
 	/**
 	 * Output a trace message. Output message contains

@@ -1,7 +1,5 @@
 #include <ArduinoLog.h>
 #include <Ethernet.h>
-
-
 /*
     _   ___ ___  _   _ ___ _  _  ___  _    ___   ___
    /_\ | _ \   \| | | |_ _| \| |/ _ \| |  / _ \ / __|
@@ -34,7 +32,6 @@ void setup() {
 
 void loop() {
     // set up some random variables
-
 
     //__FlashStringHelper cannot be declared outside a function
     const __FlashStringHelper * flashCharArray2 = F("this is a string");

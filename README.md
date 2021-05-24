@@ -50,7 +50,7 @@ This package has been published to the Arduino & PlatformIO package managers, bu
     Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
 ```
 
-See [examples/Log/Log.ino](examples/Log/Log.ino)
+See [Log-basic.ino](examples/Log-basic/Log-basic.ino) example
 
 
 ## Usage
@@ -142,7 +142,7 @@ in `Logging.h`. This may significantly reduce your project size.
 
 ## Advanced usage
 
-Advanced features are demonstrated in example [examples/Log-advanced/Log-advanced.ino](examples/Log-advanced/Log-advanced.ino)
+Advanced features are demonstrated in [Log-advanced](examples/Log-advanced/Log-advanced.ino) example.
 
 ### Displaying a printable object
 
@@ -187,10 +187,8 @@ void printPrefix(Print* _logOutput, int logLevel) {
 ```
 will result in log timestamps very similar to e.g. NLOG:
 ```
-00:47:51.432 VERBOSE Log with suffix & prefix
+00:47:51.432 VERBOSE Message to be logged
 ```
-
-See
 
 ## Credit
 
