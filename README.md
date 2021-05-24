@@ -154,7 +154,7 @@ IPAddress   ipAddress(192, 168, 0, 1);
 Log.verboseln ("ip address   : %p", ipAddress);
 ```
 
-[this example](https://forum.arduino.cc/t/printable-classes/438816) shows how to your own classes printable
+[this example](https://forum.arduino.cc/t/printable-classes/438816) shows how to make your own classes printable
  
  ### Storing messages in Flash memory
 
