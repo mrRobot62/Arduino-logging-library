@@ -50,29 +50,29 @@ typedef void (*printfunction)(Print*, int);
 #define LOGGING_VERSION 1_0_4
 
 /**
- * Logging is a helper class to output informations over
- * RS232. If you know log4j or log4net, this logging class
- * is more or less similar ;-) <br>
- * Different loglevels can be used to extend or reduce output
- * All methods are able to handle any number of output parameters.
- * All methods print out a formated string (like printf).<br>
- * To reduce output and program size, reduce loglevel.
- * 
- * Output format string can contain below wildcards. Every wildcard
- * must be start with percent sign (\%)
+ * ArduinoLog is a minimalistic framework to help the programmer output log statements to an output of choice, 
+ * fashioned after extensive logging libraries such as log4cpp ,log4j and log4net. In case of problems with an
+ * application, it is helpful to enable logging so that the problem can be located. ArduinoLog is designed so 
+ * that log statements can remain in the code with minimal performance cost. In order to facilitate this the 
+ * loglevel can be adjusted, and (if your code is completely tested) all logging code can be compiled out.
  * 
  * ---- Wildcards
  * 
- * %s	replace with an string (char*)
- * %c	replace with an character
- * %d	replace with an integer value
- * %l	replace with an long value
- * %x	replace and convert integer value into hex
- * %X	like %x but combine with 0x123AB
- * %b	replace and convert integer value into binary
- * %B	like %x but combine with 0b10100011
- * %t	replace and convert boolean value into "t" or "f"
- * %T	like %t but convert into "true" or "false"
+ * %s	display as string (char*)
+ * %S    display as string from flash memory (__FlashStringHelper* or char[] PROGMEM)
+ * %c	display as single character
+ * %C    display as single character or as hexadecimal value (prefixed by `0x`) if not a printable character
+ * %d	display as integer value
+ * %l	display as long value
+ * %u	display as unsigned long value
+ * %x	display as hexadecimal value
+ * %X	display as hexadecimal value prefixed by `0x` and leading zeros
+ * %b	display as binary number
+ * %B	display as binary number, prefixed by `0b`
+ * %t	display as boolean value "t" or "f"
+ * %T	display as boolean value "true" or "false"
+ * %D,%F display as double value
+ * %p    display a  printable object 
  * 
  * ---- Loglevels
  * 
