@@ -96,7 +96,7 @@ void Logging::setSuffix(printfunction f)
 void Logging::clearSuffix()
 {
 #ifndef DISABLE_LOGGING
-	_prefix = nullptr;
+	_suffix = nullptr;
 #endif
 }
 
